@@ -1,50 +1,50 @@
 [Background]
-Color=0,43,54
+Color=28,28,28
 
 [BackgroundIntense]
-Color=7,54,66
+Color=38,38,38
 
 [Color0]
-Color=7,54,66
+Color=88,88,88
 
 [Color0Intense]
-Color=104,104,104
+Color=98,98,98
 
 [Color1]
-Color=220,50,47
+Color=215,0,0
 
 [Color1Intense]
 Color=255,84,84
 
 [Color2]
-Color=181,137,0
+Color=95,135,0
 
 [Color2Intense]
 Color=133,153,0
 
 [Color3]
-Color=203,75,22
+Color=215,95,0
 
 [Color3Intense]
-Color=101,123,131
+Color=175,135,0
 
 [Color4]
-Color=38,139,210
+Color=0,135,255
 
 [Color4Intense]
-Color=131,148,150
+Color=228,228,228
 
 [Color5]
-Color=108,113,196
+Color=175,0,95
 
 [Color5Intense]
-Color=211,54,130
+Color=95,95,175
 
 [Color6]
 Color=42,161,152
 
 [Color6Intense]
-Color=147,161,161
+Color=0,175,175
 
 [Color7]
 Color=178,178,178
@@ -53,10 +53,10 @@ Color=178,178,178
 Color=255,255,255
 
 [Foreground]
-Color=238,232,213
+Color=128,128,128
 
 [ForegroundIntense]
-Color=253,246,227
+Color=138,138,138
 
 [General]
 Description=solarized
