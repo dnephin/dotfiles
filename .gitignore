@@ -4,16 +4,21 @@
 *
 !.*
 
-# Ignore swap and lock files
+# Ignore swap, lock, and log files
 .*.lock
 .*.swp
 *~
+.xsession-errors
 
 # Ignore files with passwords
 .pypirc
+.ssh/
+.bitcoin/
 
 # Ignore history files
 /.*_history
+.lesshst
+.viminfo
 
 # Ignore misc
 /.goutputstream-*
