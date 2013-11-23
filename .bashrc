@@ -26,7 +26,7 @@ export VISUAL=$EDITOR
 
 # Prompt
 c="\[\033["
-b=$c"0;31m\]"
+b=$c"0;34m\]"
 w=$c"0;37m\]"
 clr=$c"00m\]"
 PS1=$b"["$w"\u"$b"]["$w"\$(date +%H:%M)"$b"]["$w"\w"$b"]"$clr"\$ "
