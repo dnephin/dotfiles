@@ -9,6 +9,7 @@
 .*.swp
 *~
 .xsession-errors
+.cache
 
 # Ignore files with passwords
 .pypirc

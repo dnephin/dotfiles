@@ -9,9 +9,13 @@ set autoindent
 
 set hlsearch
 set incsearch
+syntax enable
 
 set t_Co=256
-colorscheme 256-jungle
+set background=dark
+let g:solarized_termcolors=256
+colorscheme solarized
+"colorscheme 256-jungle
 
 autocmd FileType html setlocal tabstop=2 
 
