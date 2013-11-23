@@ -1,0 +1,19 @@
+
+
+# Ignore all non-dot files
+*
+!.*
+
+# Ignore swap and lock files
+.*.lock
+.*.swp
+*~
+
+# Ignore files with passwords
+.pypirc
+
+# Ignore history files
+/.*_history
+
+# Ignore misc
+/.goutputstream-*

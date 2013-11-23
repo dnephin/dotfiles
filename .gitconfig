@@ -1,0 +1,12 @@
+[color]
+	ui = auto
+
+[user]
+	name = Daniel Nephin
+	email = dnephin@gmail.com
+
+[push]
+	default = current
+
+[advice]
+    statusHints = false
