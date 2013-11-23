@@ -1,0 +1,11 @@
+#!/bin/bash
+# Aliases
+
+alias testify="testify -v --summary"
+
+alias tmux="TERM=xterm-256color tmux -2"
+
+alias ack='ack-grep'
+alias ls='ls --color=auto'
+alias grep='grep --color=auto'
+
