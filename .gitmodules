@@ -8,8 +8,8 @@
 [submodule ".vim/bundle/colorschemes"]
 	path = .vim/bundle/colorschemes
 	url = git@github.com:flazz/vim-colorschemes.git
-[submodule "/home/daniel/.vim/bundle/vim-coffee-script"]
-	path = /home/daniel/.vim/bundle/vim-coffee-script
+[submodule ".vim/bundle/vim-coffee-script"]
+	path = .vim/bundle/vim-coffee-script
 	url = git@github.com:kchmck/vim-coffee-script.git
 [submodule ".vim/bundle/solarized"]
 	path = .vim/bundle/solarized

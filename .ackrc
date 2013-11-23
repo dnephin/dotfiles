@@ -1,3 +1,9 @@
 --type-add=coffee=.coffee
 
 --nogroup
+
+--color
+
+--pager=less -r
+
+-H
