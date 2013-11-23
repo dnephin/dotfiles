@@ -1,12 +1,12 @@
 [color]
-	ui = auto
+    ui = auto
 
 [user]
-	name = Daniel Nephin
-	email = dnephin@gmail.com
+    name = Daniel Nephin
+    email = dnephin@gmail.com
 
 [push]
-	default = current
+    default = current
 
 [advice]
     statusHints = false

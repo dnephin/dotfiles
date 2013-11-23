@@ -1,7 +1,7 @@
 
 
 # Ignore all non-dot files
-*
+/*
 !.*
 
 # Ignore swap, lock, and log files
