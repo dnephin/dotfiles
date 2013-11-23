@@ -1,0 +1,28 @@
+<?xml version="1.0"?>
+<gconf>
+	<entry name="font" mtime="1385197700" type="string">
+		<stringvalue>DejaVu Sans Mono 9</stringvalue>
+	</entry>
+	<entry name="use_system_font" mtime="1385197690" type="bool" value="false"/>
+	<entry name="use_theme_colors" mtime="1385197744" type="bool" value="false"/>
+	<entry name="background_color" mtime="1385197744" type="string">
+		<stringvalue>#002B36</stringvalue>
+	</entry>
+	<entry name="use_theme_background" mtime="1385197744" type="bool" value="false"/>
+	<entry name="bold_color" mtime="1385197744" type="string">
+		<stringvalue>#93A1A1</stringvalue>
+	</entry>
+	<entry name="visible_name" mtime="1385197744" type="string">
+		<stringvalue>Solarized</stringvalue>
+	</entry>
+	<entry name="foreground_color" mtime="1385197744" type="string">
+		<stringvalue>#839496</stringvalue>
+	</entry>
+	<entry name="solarized_scheme" mtime="1385197744" type="string">
+		<stringvalue>dark</stringvalue>
+	</entry>
+	<entry name="bold_color_same_as_fg" mtime="1385197744" type="bool" value="false"/>
+	<entry name="palette" mtime="1385197744" type="string">
+		<stringvalue>#073642:#DC322F:#859900:#B58900:#268BD2:#D33682:#2AA198:#EEE8D5:#002B36:#CB4B16:#586E75:#657B83:#839496:#6C71C4:#93A1A1:#FDF6E3</stringvalue>
+	</entry>
+</gconf>
