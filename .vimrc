@@ -22,3 +22,7 @@ autocmd FileType html setlocal tabstop=2
 "highlight OverLength ctermbg=green ctermfg=white guibg=#592929
 "match OverLength /\%81v.\+/
 
+" Save folds using a view
+autocmd BufWinLeave *.* mkview
+autocmd BufWinEnter *.* silent loadview
+
