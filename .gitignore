@@ -21,6 +21,7 @@
 /.*_history
 .lesshst
 .viminfo
+.vim/view/
 
 # Ignore misc
 /.goutputstream-*
