@@ -26,3 +26,5 @@ autocmd FileType html setlocal tabstop=2
 autocmd BufWinLeave *.* mkview
 autocmd BufWinEnter *.* silent loadview
 
+" Syntax highlight hbs files
+au BufRead,BufNewFile *.hbs setfiletype handlebars
