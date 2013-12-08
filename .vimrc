@@ -27,4 +27,4 @@ autocmd BufWinLeave *.* mkview
 autocmd BufWinEnter *.* silent loadview
 
 " Syntax highlight hbs files
-au BufRead,BufNewFile *.hbs setfiletype handlebars
+au BufRead,BufNewFile *.hbs set syntax=handlebars
