@@ -31,7 +31,9 @@ stop_after_current=Meta+Shift+V,Meta+Shift+V,Stop after current Track
 toggleMainWindow=none,none,Toggle Main Window
 
 [kactivitymanagerd]
-_k_friendly_name=KDE Activity Manager
+_k_friendly_name=kactivitymanagerd
+switch-to-activity-051a9d4d-bc9d-4320-b8e4-e84fe1d18001=none,none,Switch to activity "Desktop"
+switch-to-activity-3ad37a9f-562e-4e7e-812a-a1125b85d4bb=none,none,Switch to activity "New Activity"
 switch-to-activity-8f944a16-84b8-487c-a7d4-8abc8d563273=none,none,Switch to activity "unnamed"
 
 [kded]
@@ -49,6 +51,7 @@ display=Display,Display,Switch Display
 [khotkeys]
 _k_friendly_name=khotkeys
 {217d043c-5548-4dfa-99dc-20cca7c4e06f}=Print,none,PrintScreen
+{5487816b-5799-43e4-9923-3e1bcf2c4bf0}=,none,PrintScreen
 {d03619b6-9b3c-48cc-9d9c-a2aadb485550}=Search,none,Search
 
 [klipper]
@@ -172,10 +175,10 @@ Move Window Right=Meta+Shift+L,Meta+Shift+L,Move Window Right
 Move Window Up=Meta+Shift+K,Meta+Shift+K,Move Window Up
 MoveMouseToCenter=Meta+F6,Meta+F6,Move Mouse to Center
 MoveMouseToFocus=Meta+F5,Meta+F5,Move Mouse to Focus
-MoveZoomDown=Meta+Down,Meta+Down,Move Zoomed Area Downwards
-MoveZoomLeft=Meta+Left,Meta+Left,Move Zoomed Area to Left
-MoveZoomRight=Meta+Right,Meta+Right,Move Zoomed Area to Right
-MoveZoomUp=Meta+Up,Meta+Up,Move Zoomed Area Upwards
+MoveZoomDown=Meta+Down,Meta+Down,Move Down
+MoveZoomLeft=Meta+Left,Meta+Left,Move Left
+MoveZoomRight=Meta+Right,Meta+Right,Move Right
+MoveZoomUp=Meta+Up,Meta+Up,Move Up
 Next Layout=Meta+PgDown,Meta+PgDown,Next Layout
 Previous Layout=Meta+PgUp,Meta+PgUp,Previous Layout
 Remove Window From Group=none,none,Remove Window From Group
@@ -322,6 +325,7 @@ Previous Activity=Meta+Shift+Tab,Meta+Shift+Tab,Previous Activity
 Show Dashboard=Ctrl+F12,Ctrl+F12,Show Dashboard
 Stop Activity=,Meta+S,Stop Current Activity
 SystemTray-Klipper-10=,Ctrl+Alt+V,
+SystemTray-Klipper-6=,none,
 Systemtray-Klipper-10=Ctrl+Alt+V,Ctrl+Alt+V,
 _k_friendly_name=Plasma Desktop Shell
 activate widget 62=Alt+Esc,Alt+Esc,Activate Application Launcher Menu Widget
@@ -334,4 +338,4 @@ Map to screen 2=Meta+Ctrl+2,Meta+Ctrl+2,Map to screen 2
 Toggle screen map selection=Meta+Ctrl+M,Meta+Ctrl+M,Toggle between all screens
 Toggle stylus mode=Meta+Ctrl+S,Meta+Ctrl+S,Toggle the Stylus Tool Relative/Absolute
 Toggle touch tool=Meta+Ctrl+T,Meta+Ctrl+T,Enable/Disable the Touch Tool
-_k_friendly_name=Graphic Tablet Configuration daemon
+_k_friendly_name=wacomtablet

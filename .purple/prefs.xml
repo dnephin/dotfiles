@@ -297,7 +297,7 @@
 			<pref name='theme' type='string' value='Default'/>
 		</pref>
 		<pref name='debug'>
-			<pref name='enabled' type='bool' value='1'/>
+			<pref name='enabled' type='bool' value='0'/>
 			<pref name='filterlevel' type='int' value='0'/>
 			<pref name='style' type='int' value='3'/>
 			<pref name='toolbar' type='bool' value='1'/>
