@@ -1,1 +1,3 @@
-xrdb -merge ~/.Xdefaults
+#!/bin/sh
+
+syndaemon -i 0.3 -d -t -K
