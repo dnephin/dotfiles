@@ -327,7 +327,8 @@ SystemTray-Klipper-10=,Ctrl+Alt+V,
 SystemTray-Klipper-6=,Ctrl+Alt+V,
 Systemtray-Klipper-10=Ctrl+Alt+V,Ctrl+Alt+V,
 _k_friendly_name=Plasma Desktop Shell
-activate widget 62=Alt+Esc,Alt+Esc,Activate Application Launcher Menu Widget
+activate widget 15=Alt+Esc,Alt+Esc,Activate Application Launcher Menu Widget
+activate widget 62=,Alt+Esc,Activate Application Launcher Menu Widget
 manage activities=Meta+Q,Meta+Q,Activities...
 
 [wacomtablet]
