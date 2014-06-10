@@ -17,6 +17,8 @@
 .bitcoin/
 .netrc
 .purple/*
+.boto
+.s3cfg
 
 # Ignore history files
 /.*_history
@@ -26,3 +28,8 @@
 
 # Ignore misc
 /.goutputstream-*
+
+.*.sock
+.pip
+.tox
+.subversion
