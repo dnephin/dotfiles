@@ -1,0 +1,22 @@
+#!/bin/bash
+#
+# Merge a branch, tag it, and push it
+#
+
+set -e
+set -x
+
+branch=$1
+if [[ -z "$branch" ]]; then echo "No branch specified"; exit 1; fi
+
+git fetch origin -p
+git checkout master
+git pull origin master
+git merge --no-ff $branch
+make test || tox
+git tag "v$(python setup.py --version)"
+git push origin --tags master
+
+# cleanup
+git branch -d $branch
+git push origin --delete $branch

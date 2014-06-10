@@ -1,0 +1,3 @@
+#!/bin/bash
+
+pip install --use-wheel -i http://pypi.yelpcorp.com/simple/ ipdb ipython
