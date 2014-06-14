@@ -13,6 +13,7 @@ syntax enable
 
 set t_Co=256
 set background=dark
+"set background=light
 let g:solarized_termcolors=256
 colorscheme solarized
 "colorscheme 256-jungle

@@ -1,6 +1,6 @@
 
 # Set keyboard repeat rate
-xset r rate 300 80
+xset r rate 300 60
 
 # Disable keypad clicks while typing
 syndaemon -t -k -i 0.2 -d &
