@@ -14,7 +14,7 @@
 		</pref>
 		<pref name='logging'>
 			<pref name='log_ims' type='bool' value='1'/>
-			<pref name='log_chats' type='bool' value='0'/>
+			<pref name='log_chats' type='bool' value='1'/>
 			<pref name='log_system' type='bool' value='0'/>
 			<pref name='format' type='string' value='html'/>
 		</pref>
@@ -84,30 +84,29 @@
 	</pref>
 	<pref name='plugins'>
 		<pref name='core'>
-			<pref name='core-plugin_pack-offlinemsg'>
-				<pref name='always' type='bool' value='0'/>
-			</pref>
-			<pref name='newline'>
-				<pref name='im' type='bool' value='1'/>
-				<pref name='chat' type='bool' value='1'/>
-			</pref>
-			<pref name='core-plugin_pack-autoaccept'>
-				<pref name='path' type='string' value='/home/dnephin/.purple/autoaccept'/>
-				<pref name='reject_stranger' type='bool' value='1'/>
-				<pref name='notify' type='bool' value='1'/>
-				<pref name='newdir' type='bool' value='1'/>
-				<pref name='stranger' type='int' value='0'/>
-				<pref name='escape' type='bool' value='1'/>
-			</pref>
 			<pref name='statenotify'>
 				<pref name='notify_away' type='bool' value='1'/>
 				<pref name='notify_idle' type='bool' value='1'/>
 				<pref name='notify_signon' type='bool' value='1'/>
 			</pref>
+			<pref name='core-plugin_pack-offlinemsg'>
+				<pref name='always' type='bool' value='0'/>
+			</pref>
 			<pref name='joinpart'>
-				<pref name='delay' type='int' value='5'/>
-				<pref name='threshold' type='int' value='10'/>
+				<pref name='delay' type='int' value='2'/>
+				<pref name='threshold' type='int' value='7'/>
 				<pref name='hide_buddies' type='bool' value='1'/>
+			</pref>
+			<pref name='core-plugin_pack-autoaccept'>
+				<pref name='path' type='string' value='/home/daniel/.purple/autoaccept'/>
+				<pref name='reject_stranger' type='bool' value='1'/>
+				<pref name='notify' type='bool' value='1'/>
+				<pref name='newdir' type='bool' value='1'/>
+				<pref name='escape' type='bool' value='1'/>
+			</pref>
+			<pref name='newline'>
+				<pref name='im' type='bool' value='1'/>
+				<pref name='chat' type='bool' value='1'/>
 			</pref>
 			<pref name='psychic'>
 				<pref name='buddies_only' type='bool' value='0'/>
@@ -120,15 +119,15 @@
 			<pref name='oscar'>
 				<pref name='recent_buddies' type='bool' value='0'/>
 			</pref>
+			<pref name='meanwhile'>
+				<pref name='blist_action' type='int' value='4'/>
+			</pref>
 			<pref name='qq'>
 				<pref name='show_status_by_icon' type='bool' value='1'/>
 				<pref name='show_fake_video' type='bool' value='0'/>
 				<pref name='auto_get_authorize_info' type='bool' value='1'/>
 				<pref name='resend_interval' type='int' value='3'/>
 				<pref name='resend_times' type='int' value='10'/>
-			</pref>
-			<pref name='meanwhile'>
-				<pref name='blist_action' type='int' value='4'/>
 			</pref>
 		</pref>
 		<pref name='gtk'>
@@ -154,6 +153,18 @@
 				<pref name='gestures'>
 					<pref name='visual' type='bool' value='0'/>
 				</pref>
+			</pref>
+			<pref name='timestamp'>
+				<pref name='interval' type='int' value='300000'/>
+			</pref>
+			<pref name='extplacement'>
+				<pref name='placement_number' type='int' value='4'/>
+				<pref name='placement_number_separate' type='bool' value='0'/>
+			</pref>
+			<pref name='cap'>
+				<pref name='max_seen_difference' type='int' value='1'/>
+				<pref name='max_msg_difference' type='int' value='10'/>
+				<pref name='threshold' type='int' value='5'/>
 			</pref>
 			<pref name='purplerc'>
 				<pref name='set'>
@@ -201,25 +212,6 @@
 				</pref>
 				<pref name='disable-typing-notification' type='bool' value='0'/>
 			</pref>
-			<pref name='musicmessaging'>
-				<pref name='editor_path' type='string' value='/usr/bin/gscore'/>
-			</pref>
-			<pref name='cap'>
-				<pref name='max_seen_difference' type='int' value='1'/>
-				<pref name='max_msg_difference' type='int' value='10'/>
-				<pref name='threshold' type='int' value='5'/>
-			</pref>
-			<pref name='gtk-plugin_pack-markerline'>
-				<pref name='ims' type='bool' value='0'/>
-				<pref name='chats' type='bool' value='1'/>
-			</pref>
-			<pref name='timestamp_format'>
-				<pref name='force' type='string' value='default'/>
-				<pref name='use_dates'>
-					<pref name='conversation' type='string' value='automatic'/>
-					<pref name='log' type='string' value='automatic'/>
-				</pref>
-			</pref>
 			<pref name='gtk-plugin_pack-convcolors'>
 				<pref name='ignore_incoming' type='bool' value='1'/>
 				<pref name='chats' type='bool' value='1'/>
@@ -250,12 +242,19 @@
 					<pref name='enabled' type='bool' value='1'/>
 				</pref>
 			</pref>
-			<pref name='extplacement'>
-				<pref name='placement_number' type='int' value='4'/>
-				<pref name='placement_number_separate' type='bool' value='0'/>
+			<pref name='musicmessaging'>
+				<pref name='editor_path' type='string' value='/usr/bin/gscore'/>
 			</pref>
-			<pref name='timestamp'>
-				<pref name='interval' type='int' value='300000'/>
+			<pref name='gtk-plugin_pack-markerline'>
+				<pref name='ims' type='bool' value='0'/>
+				<pref name='chats' type='bool' value='1'/>
+			</pref>
+			<pref name='timestamp_format'>
+				<pref name='force' type='string' value='default'/>
+				<pref name='use_dates'>
+					<pref name='conversation' type='string' value='automatic'/>
+					<pref name='log' type='string' value='automatic'/>
+				</pref>
 			</pref>
 			<pref name='libnotify'>
 				<pref name='blocked_nicks' type='stringlist'>
@@ -264,7 +263,7 @@
 					<item value='MsgServ'/>
 					<item value='freenode-connect'/>
 				</pref>
-				<pref name='newmsg' type='bool' value='1'/>
+				<pref name='newmsg' type='bool' value='0'/>
 				<pref name='blocked' type='bool' value='1'/>
 				<pref name='newconvonly' type='bool' value='0'/>
 				<pref name='signon' type='bool' value='0'/>
@@ -278,7 +277,7 @@
 		<pref name='browsers'>
 			<pref name='browser' type='string' value='custom'/>
 			<pref name='place' type='int' value='0'/>
-			<pref name='manual_command' type='string' value='google-chrome'/>
+			<pref name='manual_command' type='string' value='sensible-browser'/>
 		</pref>
 		<pref name='plugins'>
 			<pref name='loaded' type='pathlist'>
@@ -301,8 +300,8 @@
 			<pref name='filterlevel' type='int' value='0'/>
 			<pref name='style' type='int' value='3'/>
 			<pref name='toolbar' type='bool' value='1'/>
-			<pref name='width' type='int' value='699'/>
-			<pref name='height' type='int' value='732'/>
+			<pref name='width' type='int' value='450'/>
+			<pref name='height' type='int' value='250'/>
 			<pref name='regex' type='string' value=''/>
 			<pref name='filter' type='bool' value='0'/>
 			<pref name='invert' type='bool' value='0'/>
@@ -323,9 +322,9 @@
 		</pref>
 		<pref name='sound'>
 			<pref name='enabled'>
-				<pref name='login' type='bool' value='0'/>
-				<pref name='logout' type='bool' value='0'/>
-				<pref name='im_recv' type='bool' value='0'/>
+				<pref name='login' type='bool' value='1'/>
+				<pref name='logout' type='bool' value='1'/>
+				<pref name='im_recv' type='bool' value='1'/>
 				<pref name='first_im_recv' type='bool' value='0'/>
 				<pref name='send_im' type='bool' value='1'/>
 				<pref name='join_chat' type='bool' value='0'/>
@@ -353,7 +352,7 @@
 				<pref name='got_attention' type='path' value=''/>
 			</pref>
 			<pref name='theme' type='string' value=''/>
-			<pref name='conv_focus' type='bool' value='0'/>
+			<pref name='conv_focus' type='bool' value='1'/>
 			<pref name='mute' type='bool' value='1'/>
 			<pref name='command' type='path' value=''/>
 			<pref name='method' type='string' value='automatic'/>
@@ -388,8 +387,8 @@
 			<pref name='send_italic' type='bool' value='0'/>
 			<pref name='send_underline' type='bool' value='0'/>
 			<pref name='spellcheck' type='bool' value='1'/>
-			<pref name='show_incoming_formatting' type='bool' value='0'/>
-			<pref name='minimum_entry_lines' type='int' value='1'/>
+			<pref name='show_incoming_formatting' type='bool' value='1'/>
+			<pref name='minimum_entry_lines' type='int' value='2'/>
 			<pref name='show_timestamps' type='bool' value='1'/>
 			<pref name='show_formatting_toolbar' type='bool' value='1'/>
 			<pref name='placement' type='string' value='last'/>
@@ -416,7 +415,7 @@
 				<pref name='height' type='int' value='1151'/>
 				<pref name='animate_buddy_icons' type='bool' value='1'/>
 				<pref name='entry_height' type='int' value='54'/>
-				<pref name='show_buddy_icons' type='bool' value='0'/>
+				<pref name='show_buddy_icons' type='bool' value='1'/>
 				<pref name='hide_new' type='string' value='never'/>
 				<pref name='close_immediately' type='bool' value='1'/>
 			</pref>
