@@ -31,6 +31,13 @@ w=$c"0;37m\]"
 clr=$c"00m\]"
 PS1=$b"["$w"\u"$b"]["$w"\$(date +%H:%M)"$b"]["$w"\w"$b"]"$clr"\$ "
 
+source /etc/profile
+
+
+if [ ! -z $YELP_SANDBOX_ROOT ]; then
+	SANDBOX="|sb"
+fi
+
 
 source ~/.bash_alias
 [ -f ~/.bash_path ] && source ~/.bash_path
