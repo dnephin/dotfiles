@@ -29,3 +29,8 @@ autocmd BufWinEnter *.* silent loadview
 
 " Syntax highlight hbs files
 au BufRead,BufNewFile *.hbs set syntax=handlebars
+
+
+" Wrap lines at 80
+set formatoptions+=w
+set tw=80
