@@ -14,7 +14,7 @@ git checkout master
 git pull origin master
 git merge --no-ff $branch
 make test || tox
-git tag "v$(python setup.py --version)"
+git tag "v$(python setup.py --version)" || echo "NO TAG!!!"
 git push origin --tags master
 
 # cleanup

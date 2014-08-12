@@ -9,8 +9,6 @@ alias ack='ack-grep'
 alias ls='ls --color=auto'
 alias grep='grep --color=auto'
 
-alias clearsea='cd ~/.wine && env WINEPREFIX="/home/dnephin/.wine" wine "C:\Program Files\LifeSize ClearSea\bin\ClearSea.exe" 2> /dev/null > /dev/null &'
-
 alias docker-dev='docker run -i -t \
         -v ~/.ssh:/home/daniel/.ssh \
         -v ~/pers/code/:/home/daniel/pers/code'
