@@ -12,3 +12,5 @@ alias grep='grep --color=auto'
 alias docker-dev='docker run -i -t \
         -v ~/.ssh:/home/daniel/.ssh \
         -v ~/pers/code/:/home/daniel/pers/code'
+
+alias tmux-set-title='tmux rename-window $(basename $PWD)'

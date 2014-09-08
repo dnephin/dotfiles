@@ -45,7 +45,7 @@
 			<pref name='default' type='int' value='1390964765'/>
 			<pref name='startup' type='int' value='0'/>
 			<pref name='startup_current_status' type='bool' value='1'/>
-			<pref name='idleaway' type='int' value='1407765741'/>
+			<pref name='idleaway' type='int' value='1409671272'/>
 			<pref name='isidleaway' type='bool' value='0'/>
 		</pref>
 		<pref name='conversations'>
@@ -409,9 +409,9 @@
 				<pref name='height' type='int' value='390'/>
 			</pref>
 			<pref name='im'>
-				<pref name='x' type='int' value='3367'/>
+				<pref name='x' type='int' value='3332'/>
 				<pref name='y' type='int' value='0'/>
-				<pref name='width' type='int' value='473'/>
+				<pref name='width' type='int' value='508'/>
 				<pref name='height' type='int' value='1178'/>
 				<pref name='animate_buddy_icons' type='bool' value='1'/>
 				<pref name='entry_height' type='int' value='54'/>

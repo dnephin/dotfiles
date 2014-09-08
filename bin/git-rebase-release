@@ -10,7 +10,8 @@ fi
 
 branchname="$(git rev-parse --abbrev-ref HEAD).rebase"
 
-git checkout "$branchname" || git checkout -b "$branchname"
+git branch -D "$branchname"
+git checkout -b "$branchname"
 git fetch "$remote"
 git rebase "$remote/master"
 
