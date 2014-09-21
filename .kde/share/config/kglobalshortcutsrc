@@ -1,5 +1,5 @@
 [$Version]
-update_info=kwin_window_shortcuts.upd:kde414,plasma-to-plasmadesktop-shortcuts.upd:4.3plasma-desktop-shortcuts,ksmserver_shortcuts.upd:kde45,kscreenlocker_locksession-shortcut.upd:4.9-locksession-shortcut,ksmserver_shortcuts.upd:kde4.10,ksmserver_shortcuts.upd:kde4.10-remove-group-kscreenlocker
+update_info=kwin_window_shortcuts.upd:kde414,plasma-to-plasmadesktop-shortcuts.upd:4.3plasma-desktop-shortcuts,ksmserver_shortcuts.upd:kde45,kscreenlocker_locksession-shortcut.upd:4.9-locksession-shortcut,ksmserver_shortcuts.upd:kde4.10,ksmserver_shortcuts.upd:kde4.10-remove-group-kscreenlocker,konsole_remove_background_mode.upd:2.11.0-remove-background-mode
 
 [KDE Keyboard Layout Switcher]
 Switch to Next Keyboard Layout=Ctrl+Alt+K,Ctrl+Alt+K,Switch to Next Keyboard Layout
@@ -31,24 +31,30 @@ toggleMainWindow=none,none,Toggle Main Window
 
 [kactivitymanagerd]
 _k_friendly_name=KDE Activity Manager
+switch-to-activity-5497233b-6430-4f97-a6a9-8d121c0db29e=none,none,Switch to activity "New Activity"
 switch-to-activity-7a9913af-ed1e-4493-9918-9b4b9022efff=none,none,Switch to activity "unnamed"
+switch-to-activity-a535821b-a359-4965-a01d-3b555b54c733=none,none,Switch to activity "Desktop"
 
 [kded]
+Decrease Keyboard Brightness=Keyboard Brightness Down,Keyboard Brightness Down,Decrease Keyboard Brightness
 Decrease Screen Brightness=Monitor Brightness Down,Monitor Brightness Down,Decrease Screen Brightness
 Hibernate=Hibernate,Hibernate,Hibernate
+Increase Keyboard Brightness=Keyboard Brightness Up,Keyboard Brightness Up,Increase Keyboard Brightness
 Increase Screen Brightness=Monitor Brightness Up,Monitor Brightness Up,Increase Screen Brightness
 PowerOff=Power Off,Power Off,
 Sleep=Sleep,Sleep,Sleep
+Toggle Keyboard Backlight=Keyboard Light On/Off,Keyboard Light On/Off,Toggle Keyboard Backlight
 _k_friendly_name=KDE Daemon
 display=Display,Display,Switch Display
 
 [khotkeys]
 _k_friendly_name=khotkeys
-{28d064f2-007d-4436-982b-a9c8f048e6a9}=none,none,PrintScreen
+{75057dfc-57ec-4dcb-8f33-e5c7333459ed}=Print,none,PrintScreen
 {d03619b6-9b3c-48cc-9d9c-a2aadb485550}=Search,none,Search
 
 [klipper]
 _k_friendly_name=Klipper
+clear-history=none,none,Clear Clipboard History
 clipboard_action=Ctrl+Alt+X,Ctrl+Alt+X,Enable Clipboard Actions
 cycleNextAction=none,none,Next History Item
 cyclePrevAction=none,none,Previous History Item
@@ -76,6 +82,7 @@ Run Command on clipboard contents=Alt+Shift+F2,Alt+Shift+F2,Run Command on clipb
 Show System Activity=Ctrl+Esc,Ctrl+Esc,Show System Activity
 Switch User=Ctrl+Alt+Ins,Ctrl+Alt+Ins,Switch User
 _k_friendly_name=Run Command Interface
+baloosearch=none,none,Run Command (runner "Desktop Search" only)
 bookmarks=none,none,Run Command (runner "Bookmarks" only)
 desktopsessions=none,none,Run Command (runner "Desktop Sessions" only)
 locations=none,none,Run Command (runner "Locations" only)
@@ -123,10 +130,10 @@ Move Window Right=Meta+Shift+L,Meta+Shift+L,Move Window Right
 Move Window Up=Meta+Shift+K,Meta+Shift+K,Move Window Up
 MoveMouseToCenter=Meta+F6,Meta+F6,Move Mouse to Center
 MoveMouseToFocus=Meta+F5,Meta+F5,Move Mouse to Focus
-MoveZoomDown=Meta+Down,Meta+Down,Move Down
-MoveZoomLeft=Meta+Left,Meta+Left,Move Left
-MoveZoomRight=Meta+Right,Meta+Right,Move Right
-MoveZoomUp=Meta+Up,Meta+Up,Move Up
+MoveZoomDown=Meta+Down,Meta+Down,Move Zoomed Area Downwards
+MoveZoomLeft=Meta+Left,Meta+Left,Move Zoomed Area to Left
+MoveZoomRight=Meta+Right,Meta+Right,Move Zoomed Area to Right
+MoveZoomUp=Meta+Up,Meta+Up,Move Zoomed Area Upwards
 Next Layout=,Meta+PgDown,Next Layout
 Previous Layout=,Meta+PgUp,Previous Layout
 Remove Window From Group=none,none,Remove Window From Group
@@ -143,10 +150,10 @@ Switch One Desktop Down=none,none,Switch One Desktop Down
 Switch One Desktop Up=none,none,Switch One Desktop Up
 Switch One Desktop to the Left=none,none,Switch One Desktop to the Left
 Switch One Desktop to the Right=none,none,Switch One Desktop to the Right
-Switch Window Down=Meta+Alt+Down,Meta+Alt+Down,Switch to Window Below
-Switch Window Left=Meta+Alt+Left,Meta+Alt+Left,Switch to Window to the Left
-Switch Window Right=Meta+Alt+Right,Meta+Alt+Right,Switch to Window to the Right
-Switch Window Up=Meta+Alt+Up,Meta+Alt+Up,Switch to Window Above
+Switch Window Down=none,Meta+Alt+Down,Switch to Window Below
+Switch Window Left=none,Meta+Alt+Left,Switch to Window to the Left
+Switch Window Right=none,Meta+Alt+Right,Switch to Window to the Right
+Switch Window Up=none,Meta+Alt+Up,Switch to Window Above
 Switch to Desktop 1=Alt+F1,Ctrl+F1,Switch to Desktop 1
 Switch to Desktop 10=none,none,Switch to Desktop 10
 Switch to Desktop 11=none,none,Switch to Desktop 11
@@ -170,6 +177,7 @@ Switch to Desktop 9=none,none,Switch to Desktop 9
 Switch to Next Desktop=none,none,Switch to Next Desktop
 Switch to Next Screen=none,none,Switch to Next Screen
 Switch to Previous Desktop=none,none,Switch to Previous Desktop
+Switch to Previous Screen=none,none,Switch to Previous Screen
 Switch to Screen 0=none,none,Switch to Screen 0
 Switch to Screen 1=none,none,Switch to Screen 1
 Switch to Screen 2=none,none,Switch to Screen 2
@@ -191,7 +199,7 @@ Walk Through Windows (Reverse)=Alt+Shift+Backtab,Alt+Shift+Backtab,Walk Through 
 Walk Through Windows Alternative=none,none,Walk Through Windows Alternative
 Walk Through Windows Alternative (Reverse)=none,none,Walk Through Windows Alternative (Reverse)
 Walk Through Windows of Current Application=Alt+`,Alt+`,Walk Through Windows of Current Application
-Walk Through Windows of Current Application (Reverse)=Alt+~,Alt+~,Walk Through Windows of Current Application (Reverse)
+Walk Through Windows of Current Application (Reverse)=none,Alt+~,Walk Through Windows of Current Application (Reverse)
 Walk Through Windows of Current Application Alternative=none,none,Walk Through Windows of Current Application Alternative
 Walk Through Windows of Current Application Alternative (Reverse)=none,none,Walk Through Windows of Current Application Alternative (Reverse)
 Window Above Other Windows=none,none,Keep Window Above Others
@@ -212,7 +220,7 @@ Window One Desktop Down=none,none,Window One Desktop Down
 Window One Desktop Up=none,none,Window One Desktop Up
 Window One Desktop to the Left=none,none,Window One Desktop to the Left
 Window One Desktop to the Right=none,none,Window One Desktop to the Right
-Window Operations Menu=Meta+W,Alt+F3,Window Operations Menu
+Window Operations Menu=none,Alt+F3,Window Operations Menu
 Window Pack Down=none,none,Pack Window Down
 Window Pack Left=none,none,Pack Window to the Left
 Window Pack Right=none,none,Pack Window to the Right
@@ -252,6 +260,7 @@ Window to Desktop 9=none,none,Window to Desktop 9
 Window to Next Desktop=none,none,Window to Next Desktop
 Window to Next Screen=none,none,Window to Next Screen
 Window to Previous Desktop=none,none,Window to Previous Desktop
+Window to Previous Screen=none,none,Window to Previous Screen
 Window to Screen 0=none,none,Window to Screen 0
 Window to Screen 1=none,none,Window to Screen 1
 Window to Screen 2=none,none,Window to Screen 2
@@ -271,7 +280,18 @@ Previous Activity=Meta+Shift+Tab,Meta+Shift+Tab,Previous Activity
 Show Dashboard=Ctrl+F12,Ctrl+F12,Show Dashboard
 Stop Activity=,Meta+S,Stop Current Activity
 SystemTray-Klipper-10=,Ctrl+Alt+V,
+SystemTray-Klipper-6=,Ctrl+Alt+V,
 Systemtray-Klipper-10=Ctrl+Alt+V,Ctrl+Alt+V,
 _k_friendly_name=Plasma Desktop Shell
+activate widget 3=Wireless,Wireless,Activate Network Management Widget
 activate widget 62=Meta+Esc,Meta+Esc,Activate Application Launcher Menu Widget
 manage activities=Meta+Q,Meta+Q,Activities...
+
+[wacomtablet]
+Map to fullscreen=Meta+Ctrl+F,Meta+Ctrl+F,Map to all fullscreen
+Map to screen 1=Meta+Ctrl+1,Meta+Ctrl+1,Map to screen 1
+Map to screen 2=Meta+Ctrl+2,Meta+Ctrl+2,Map to screen 2
+Toggle screen map selection=Meta+Ctrl+M,Meta+Ctrl+M,Toggle between all screens
+Toggle stylus mode=Meta+Ctrl+S,Meta+Ctrl+S,Toggle the Stylus Tool Relative/Absolute
+Toggle touch tool=Meta+Ctrl+T,Meta+Ctrl+T,Enable/Disable the Touch Tool
+_k_friendly_name=Graphic Tablet Configuration daemon
