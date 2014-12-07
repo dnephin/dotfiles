@@ -9,7 +9,8 @@ set autoindent
 
 set hlsearch
 set incsearch
-syntax enable
+syntax on
+filetype plugin indent on
 
 set t_Co=256
 set background=dark
