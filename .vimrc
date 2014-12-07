@@ -6,6 +6,8 @@ execute pathogen#infect()
 set tabstop=4
 set expandtab
 set autoindent
+set smartindent
+set shiftwidth=4
 
 set hlsearch
 set incsearch
