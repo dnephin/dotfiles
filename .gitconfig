@@ -10,3 +10,6 @@
 
 [advice]
     statusHints = false
+
+[core]
+    mergeoptions = --no-edit

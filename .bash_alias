@@ -11,3 +11,5 @@ alias grep='grep --color=auto'
 
 . /nail/scripts/aliases.sh
 alias bb-run='bb-run -f'
+
+alias ipython="~/.local/bin/ipython"

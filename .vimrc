@@ -6,18 +6,20 @@ execute pathogen#infect()
 set tabstop=4
 set expandtab
 set autoindent
+set smartindent
+set shiftwidth=4
 
 set hlsearch
 set incsearch
-syntax enable
+syntax on
+filetype plugin indent on
 
 set t_Co=256
 set background=dark
+"set background=light
 let g:solarized_termcolors=256
 colorscheme solarized
 "colorscheme 256-jungle
-
-autocmd FileType html setlocal tabstop=2 
 
 "highlight OverLength ctermbg=green ctermfg=white guibg=#592929
 "match OverLength /\%81v.\+/
@@ -28,3 +30,10 @@ autocmd BufWinEnter *.* silent loadview
 
 " Syntax highlight hbs files
 au BufRead,BufNewFile *.hbs set syntax=handlebars
+
+
+" Wrap lines at 80
+set formatoptions+=w
+set tw=80
+
+set foldmethod=syntax
