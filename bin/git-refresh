@@ -3,7 +3,7 @@
 # Fetch and pull master
 #
 
-set -e
+set -ue
 
 git fetch origin -p
 git pull origin master

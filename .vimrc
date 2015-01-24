@@ -8,6 +8,7 @@ set expandtab
 set autoindent
 set smartindent
 set shiftwidth=4
+set modeline
 
 set hlsearch
 set incsearch

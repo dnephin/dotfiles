@@ -1,0 +1,17 @@
+#!/bin/bash
+
+set -eu
+
+remote="origin"
+if [ "$1" ]; then
+    remote="$1"
+fi
+
+
+branchname="$(git rev-parse --abbrev-ref HEAD).rebase"
+
+git branch -D "$branchname"
+git checkout -b "$branchname"
+git fetch "$remote"
+git rebase "$remote/master"
+
