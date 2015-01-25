@@ -14,3 +14,6 @@ alias docker-dev='docker run -i -t \
         -v ~/pers/code/:/home/daniel/pers/code'
 
 alias tmux-set-title='tmux rename-window $(basename $PWD)'
+
+
+alias fig='docker-compose'
