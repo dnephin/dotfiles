@@ -9,12 +9,6 @@ alias ack='ack-grep'
 alias ls='ls --color=auto'
 alias grep='grep --color=auto'
 
-. /nail/scripts/aliases.sh
-alias bb-run='bb-run -f'
-
-alias ipython="~/.local/bin/ipython"
-
 alias tmux-set-title='tmux rename-window $(basename $PWD)'
-
 
 alias fig='docker-compose'
