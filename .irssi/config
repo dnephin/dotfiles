@@ -17,7 +17,12 @@ chatnets = {
 
 channels = (
   { name = "#docker"; chatnet = "freenode"; autojoin = "yes"; },
-  { name = "#docker-compose"; chatnet = "freenode"; autojoin = "yes"; }
+  { name = "#docker-compose"; chatnet = "freenode"; autojoin = "yes"; },
+  {
+    name = "#docker-maintainers";
+    chatnet = "freenode";
+    autojoin = "yes";
+  }
 );
 
 aliases = { };
@@ -136,5 +141,5 @@ statusbar = {
 settings = {
   core = { real_name = "daniel"; user_name = "daniel"; nick = "dnephin"; };
   "fe-text" = { actlist_sort = "refnum"; };
-  "fe-common/core" = { theme = "foo"; };
+  "fe-common/core" = { theme = "default"; };
 };
