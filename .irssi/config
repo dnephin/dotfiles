@@ -22,7 +22,8 @@ channels = (
     name = "#docker-maintainers";
     chatnet = "freenode";
     autojoin = "yes";
-  }
+  },
+  { name = "#docker-dev"; chatnet = "freenode"; autojoin = "yes"; }
 );
 
 aliases = { };
