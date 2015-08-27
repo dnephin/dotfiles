@@ -131,6 +131,8 @@ mode "resize" {
 
 bindsym $mod+r mode "resize"
 
+bindsym $mod+Pause exec i3lock -i /usr/share/pixmaps/background.png
+
 
 # Volume control
 bindsym XF86AudioRaiseVolume exec amixer -q set Master 1.5dB+ unmute
@@ -164,4 +166,4 @@ client.unfocused        #333333 #586e75 #dddddd #292d2e
 #client.urgent           #C10004 #900000 #ffffff #900000
 
 
-exec --no-startup-id feh --bg-fill /usr/share/pixmaps/arch-grey.jpg
+exec --no-startup-id feh --bg-fill /usr/share/pixmaps/background.png
