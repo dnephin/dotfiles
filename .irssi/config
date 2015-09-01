@@ -18,12 +18,10 @@ chatnets = {
 channels = (
   { name = "#docker"; chatnet = "freenode"; autojoin = "yes"; },
   { name = "#docker-compose"; chatnet = "freenode"; autojoin = "yes"; },
-  {
-    name = "#docker-maintainers";
-    chatnet = "freenode";
-    autojoin = "yes";
-  },
-  { name = "#docker-dev"; chatnet = "freenode"; autojoin = "yes"; }
+  { name = "#docker-maintainers"; chatnet = "freenode"; autojoin = "yes"; },
+  { name = "#docker-dev"; chatnet = "freenode"; autojoin = "yes"; },
+  { name = "#docker-machine"; chatnet = "freenode"; autojoin = "yes"; },
+  { name = "#docker-swarm"; chatnet = "freenode"; autojoin = "yes"; }
 );
 
 aliases = { };
