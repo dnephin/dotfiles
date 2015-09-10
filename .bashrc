@@ -32,6 +32,8 @@ clr=$c"00m\]"
 PS1=$b"["$w"\u"$b"]["$w"\$(date +%H:%M)"$b"]["$w"\w"$b"]"$clr"\$ "
 
 
+export PATH=$PATH:~/.local/bin/:~/bin/
+
 source ~/.bash_alias
 [ -f ~/.bash_path ] && source ~/.bash_path
 [ -f ~/.bash_local ] && source ~/.bash_local

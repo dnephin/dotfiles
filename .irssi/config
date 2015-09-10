@@ -142,3 +142,8 @@ settings = {
   "fe-text" = { actlist_sort = "refnum"; };
   "fe-common/core" = { theme = "default"; };
 };
+keyboard = (
+  { key = "alt+1"; id = "change_window"; data = "1"; },
+  { key = "alt+2"; id = "change_window"; data = "2"; },
+  { key = "ALT+2"; id = "change_window"; data = "2"; }
+);
