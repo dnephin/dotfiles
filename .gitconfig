@@ -10,3 +10,5 @@
 
 [advice]
     statusHints = false
+[core]
+	excludesfile = /home/daniel/.gitignore.global
