@@ -1,4 +1,3 @@
-
 # If not running interactively, don't do anything
 [ -z "$PS1" ] && return
 
@@ -34,7 +33,7 @@ PS1=$b"["$w"\u"$b"]["$w"\$(date +%H:%M)"$b"]["$w"\w"$b"]"$clr"\$ "
 
 export PATH=$PATH:~/.local/bin/:~/bin/
 
-source ~/.bash_completion/*
+for f in ~/.bash_complete/*; do source $f; done
 source ~/.bash_alias
 [ -f ~/.bash_path ] && source ~/.bash_path
 [ -f ~/.bash_local ] && source ~/.bash_local
