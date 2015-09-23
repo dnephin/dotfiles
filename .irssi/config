@@ -147,3 +147,23 @@ keyboard = (
   { key = "alt+2"; id = "change_window"; data = "2"; },
   { key = "ALT+2"; id = "change_window"; data = "2"; }
 );
+ignores = (
+  {
+    level = "JOINS PARTS QUITS NICKS";
+    channels = ( "#docker-compose" );
+  },
+  { level = "JOINS PARTS QUITS NICKS"; channels = ( "#docker-dev" ); },
+  {
+    level = "JOINS PARTS QUITS NICKS";
+    channels = ( "#docker-machine" );
+  },
+  { 
+    level = "JOINS PARTS QUITS NICKS";
+    channels = ( "#docker-swarm" );
+  },
+  {
+    level = "JOINS PARTS QUITS NICKS";
+    channels = ( "#docker-maintainers" );
+  },
+  { level = "JOINS PARTS QUITS NICKS"; channels = ( "#docker" ); }
+);
