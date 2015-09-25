@@ -11,7 +11,7 @@ set shiftwidth=4
 set modeline
 
 set hlsearch
-set incsearch
+"set incsearch
 syntax on
 filetype plugin indent on
 
@@ -36,3 +36,11 @@ au BufRead,BufNewFile *.hbs set syntax=handlebars
 " Wrap lines at 80
 set formatoptions+=w
 set tw=80
+
+" Go syntax highlighting
+let g:go_highlight_functions = 1
+let g:go_highlight_methods = 1
+let g:go_highlight_structs = 1
+let g:go_highlight_operators = 1
+let g:go_highlight_build_constraints = 1
+let g:go_fmt_autosave = 0
