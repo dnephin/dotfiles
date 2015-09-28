@@ -44,3 +44,5 @@ let g:go_highlight_structs = 1
 let g:go_highlight_operators = 1
 let g:go_highlight_build_constraints = 1
 let g:go_fmt_autosave = 0
+au FileType go set foldnestmax=1
+au FileType go set foldmethod=syntax
