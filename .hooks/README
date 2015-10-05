@@ -1,0 +1,3 @@
+
+Backup of pre-commit hooks for repos that don't include their own
+`.pre-commit-config.yml`.

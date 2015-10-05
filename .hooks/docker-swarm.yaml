@@ -1,0 +1,30 @@
+- repo: git://github.com/pre-commit/pre-commit-hooks
+  sha: 'v0.4.2'
+  hooks:
+    - id: check-merge-conflict
+    - id: end-of-file-fixer
+      files: '\.(go|md|sh|yml|yaml|Dockerfile|json|ini)$'
+      exclude: '^Godeps/'
+    - id: trailing-whitespace
+      files: '\.(go|sh|yml|yaml|Dockerfile|json|ini)$'
+      exclude: '^Godeps/'
+
+- repo: git://github.com/dnephin/pre-commit-golang
+  sha: HEAD
+  hooks:
+    - id: go-fmt
+      exclude: '^Godeps/'
+      args: ['-s']
+    - id: go-lint
+      exclude: '^Godeps/'
+    - id: go-vet
+      exclude: '^Godeps/'
+
+- repo: local
+  hooks:
+    - id: no-spaces-in-bash
+      name: "No spaces in bash scripts"
+      language: pcre
+      files: '\.(sh|bash|bats)$'
+      exclude: '^Godeps/'
+      entry: '^ '
