@@ -29,8 +29,9 @@ colorscheme solarized
 autocmd BufWinLeave *.* mkview
 autocmd BufWinEnter *.* silent loadview
 
-" Syntax highlight hbs files
+" Syntax highlight for file types
 au BufRead,BufNewFile *.hbs set syntax=handlebars
+au BufRead,BufNewFile *.md set syntax=markdown
 
 
 " Wrap lines at 80
