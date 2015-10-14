@@ -1,0 +1,14 @@
+#!/bin/bash
+
+set -eux
+
+mkdir -p ~/.cache/package_cache
+
+docker run \
+    --name squid-in-a-can \
+    --net host \
+    -d \
+    -v $HOME/.cache/package_cache:/var/cache/squid3 \
+    jpetazzo/squid-in-a-can
+
+sudo iptables -t nat -A PREROUTING -p tcp --dport 80 -j REDIRECT --to 3129 -w
