@@ -49,7 +49,9 @@ display=Display,Display,Switch Display
 
 [khotkeys]
 _k_friendly_name=khotkeys
+{054e828e-db9f-482b-a85e-185f5ef96dfa}=,none,Lock Screen
 {75057dfc-57ec-4dcb-8f33-e5c7333459ed}=Print,none,PrintScreen
+{b47039e8-773c-4c57-b712-2b01e49dae69}=Meta+Pause,none,New Action
 {d03619b6-9b3c-48cc-9d9c-a2aadb485550}=Search,none,Search
 
 [klipper]
@@ -98,7 +100,7 @@ windows=none,none,Run Command (runner "Windows" only)
 
 [ksmserver]
 Halt Without Confirmation=Ctrl+Alt+Shift+PgDown,Ctrl+Alt+Shift+PgDown,Halt Without Confirmation
-Lock Session=Meta+Pause,Ctrl+Alt+L,Lock Session
+Lock Session=,Ctrl+Alt+L,Lock Session
 Log Out=Ctrl+Alt+Del,Ctrl+Alt+Del,Log Out
 Log Out Without Confirmation=Ctrl+Alt+Shift+Del,Ctrl+Alt+Shift+Del,Log Out Without Confirmation
 Reboot Without Confirmation=Ctrl+Alt+Shift+PgUp,Ctrl+Alt+Shift+PgUp,Reboot Without Confirmation
