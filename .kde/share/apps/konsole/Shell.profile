@@ -9,6 +9,9 @@ Parent=FALLBACK/
 RemoteTabTitleFormat=%h : %u
 TabBarPosition=1
 
+[Interaction Options]
+TrimTrailingSpacesInSelectedText=true
+
 [Scrolling]
 HistoryMode=1
 ScrollBarPosition=2

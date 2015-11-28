@@ -44,7 +44,7 @@ __docker_compose_services_all() {
 # All services that have an entry with the given key in their compose_file section
 ___docker_compose_services_with_key() {
 	# flatten sections to one line, then filter lines containing the key and return section name.
-	awk '/^[a-zA-Z0-9]/{printf "\n"};{printf $0;next;}' "${compose_file:-$(__docker_compose_compose_file)}" | awk -F: -v key=": +$1:" '$0 ~ key {print $1}'
+	awk '/^[a-zA-Z0-9]/{printf "\n"};{printf $0;next;}' "${compose_file:-$(__docker_compose_compose_file)}" 2>/dev/null | awk -F: -v key=": +$1:" '$0 ~ key {print $1}'
 }
 
 # All services that are defined by a Dockerfile reference
@@ -87,7 +87,7 @@ __docker_compose_services_stopped() {
 _docker_compose_build() {
 	case "$cur" in
 		-*)
-			COMPREPLY=( $( compgen -W "--help --no-cache" -- "$cur" ) )
+			COMPREPLY=( $( compgen -W "--force-rm --help --no-cache --pull" -- "$cur" ) )
 			;;
 		*)
 			__docker_compose_services_from_build
@@ -105,11 +105,15 @@ _docker_compose_docker_compose() {
 		--project-name|-p)
 			return
 			;;
+		--x-network-driver)
+			COMPREPLY=( $( compgen -W "bridge host none overlay" -- "$cur" ) )
+			return
+			;;
 	esac
 
 	case "$cur" in
 		-*)
-			COMPREPLY=( $( compgen -W "--help -h --verbose --version -v --file -f --project-name -p" -- "$cur" ) )
+			COMPREPLY=( $( compgen -W "--file -f --help -h --project-name -p --verbose --version -v --x-networking --x-network-driver" -- "$cur" ) )
 			;;
 		*)
 			COMPREPLY=( $( compgen -W "${commands[*]}" -- "$cur" ) )
@@ -212,7 +216,7 @@ _docker_compose_ps() {
 _docker_compose_pull() {
 	case "$cur" in
 		-*)
-			COMPREPLY=( $( compgen -W "--help" -- "$cur" ) )
+			COMPREPLY=( $( compgen -W "--help --ignore-pull-failures" -- "$cur" ) )
 			;;
 		*)
 			__docker_compose_services_from_image
@@ -258,14 +262,14 @@ _docker_compose_run() {
 			compopt -o nospace
 			return
 			;;
-		--entrypoint|--user|-u)
+		--entrypoint|--name|--user|-u)
 			return
 			;;
 	esac
 
 	case "$cur" in
 		-*)
-			COMPREPLY=( $( compgen -W "-d --entrypoint -e --help --no-deps --rm --service-ports --publish -p -T --user -u" -- "$cur" ) )
+			COMPREPLY=( $( compgen -W "-d --entrypoint -e --help --name --no-deps --publish -p --rm --service-ports -T --user -u" -- "$cur" ) )
 			;;
 		*)
 			__docker_compose_services_all
@@ -409,6 +413,9 @@ _docker_compose() {
 			--project-name|p)
 				(( counter++ ))
 				compose_project="${words[$counter]}"
+				;;
+			--x-network-driver)
+				(( counter++ ))
 				;;
 			-*)
 				;;
