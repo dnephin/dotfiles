@@ -1,9 +1,10 @@
 #!/bin/bash
 set -e
 
-if [ -z "$3"]; then
+if [ -z "$3" ]; then
     echo "Usage: $(basename $0) remote pr-number local-branch"
     exit 1
 fi
 
 git fetch $1 pull/$2/head:$3
+git checkout $3
