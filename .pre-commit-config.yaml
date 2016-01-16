@@ -1,12 +1,12 @@
-- repo: git://github.com/pre-commit/pre-commit-hooks
-  sha: 'master'
-  hooks:
-    - id: check-added-large-files
-    - id: check-merge-conflict
-    - id: check-yaml
-    - id: check-xml
-    - id: check-json
-    - id: pretty-format-json
-    - id: end-of-file-fixer
-    - id: trailing-whitespace
-    - id: detect-private-key
+-   repo: git://github.com/pre-commit/pre-commit-hooks
+    sha: 64943e86417774b9d6ba63c74e00f8cc3e2119e0
+    hooks:
+    -   id: check-added-large-files
+    -   id: check-merge-conflict
+    -   id: check-yaml
+    -   id: check-xml
+    -   id: check-json
+    -   id: pretty-format-json
+    -   id: end-of-file-fixer
+    -   id: trailing-whitespace
+    -   id: detect-private-key

@@ -48,3 +48,4 @@ let g:go_fmt_autosave = 0
 let g:go_fmt_command = "goimports"
 au FileType go set foldnestmax=1
 au FileType go set foldmethod=syntax
+au FileType go colorscheme leo
