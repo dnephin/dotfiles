@@ -49,3 +49,7 @@ let g:go_fmt_command = "goimports"
 au FileType go set foldnestmax=1
 au FileType go set foldmethod=syntax
 au FileType go colorscheme leo
+
+" Autocomplete
+let g:ycm_autoclose_preview_window_after_completion = 1
+let g:ycm_autoclose_preview_window_after_insertion = 1
