@@ -13,6 +13,7 @@
   sha: HEAD
   hooks:
     - id: go-fmt
+      args: ["-s"]
       exclude: '^vendor/'
     - id: go-lint
       exclude: '^vendor/'
