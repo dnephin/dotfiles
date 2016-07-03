@@ -177,7 +177,9 @@ workspace 6 output HDMI1
 
 exec --no-startup-id feh --bg-fill /usr/share/pixmaps/background.png
 
-client.focused #888888 #dddddd #222222 #2e9ef4
+client.focused #888888 #dddddd #222222 #333333
 client.focused_inactive #333333 #555555 #bbbbbb #484e50
-client.unfocused #333333 #333333 #888888 #292d2e
+client.unfocused #333333 #333333 #888888 #333333
 client.urgent #2f343a #900000 #ffffff #900000
+
+client.background #333333
