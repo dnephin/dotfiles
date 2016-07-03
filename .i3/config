@@ -150,25 +150,21 @@ bindsym XF86MonBrightnessDown exec "xbacklight -dec 10"
 
 # Style
 bar {
-        position top
+  position top
         status_command i3status
         tray_output primary
-        colors {
-            background #002b36
-            statusline #fdf6e3
-            separator  #93a1a1
-
-            focused_workspace  #002b36 #002b36 #eee8d5
-            inactive_workspace #333333 #586e75 #dddddd
-            #active_workspace   #333333 #5f676a #ffffff
-            #urgent_workspace   #2f343a #900000 #ffffff
-        }
+  colors {
+    separator #666666
+    background #333333
+    statusline #bbbbbb
+    focused_workspace #888888 #dddddd #222222
+    active_workspace #333333 #555555 #bbbbbb
+    inactive_workspace #333333 #555555 #bbbbbb
+    urgent_workspace #2f343a #900000 #ffffff
+  }
 }
-
-client.focused          #002b36 #002b36 #eee8d5 #000000
-client.unfocused        #333333 #586e75 #dddddd #292d2e
-#client.focused_inactive #333333 #93a1a1 #ffffff #484e50
-#client.urgent           #C10004 #900000 #ffffff #900000
+#
+#
 
 
 workspace 1 output eDP1
@@ -180,3 +176,8 @@ workspace 6 output HDMI1
 
 
 exec --no-startup-id feh --bg-fill /usr/share/pixmaps/background.png
+
+client.focused #888888 #dddddd #222222 #2e9ef4
+client.focused_inactive #333333 #555555 #bbbbbb #484e50
+client.unfocused #333333 #333333 #888888 #292d2e
+client.urgent #2f343a #900000 #ffffff #900000
