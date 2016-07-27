@@ -1,2 +1,4 @@
 #!/bin/bash
-docker inspect -f '{{.NetworkSettings.IPAddress}}' $1
+docker inspect -f \
+    '{{range $key, $value := .NetworkSettings.Networks}} {{ $value.IPAddress}} {{end}}' \
+    $1
