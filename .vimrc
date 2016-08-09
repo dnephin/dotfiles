@@ -56,3 +56,10 @@ let g:ycm_autoclose_preview_window_after_insertion = 1
 let g:ycm_filetype_blacklist = {
       \ 'go' : 1,
       \}
+
+" Make vim-go more responsive
+set nocursorcolumn
+set nocursorline
+syntax sync minlines=256
+set synmaxcol=128
+set re=1
