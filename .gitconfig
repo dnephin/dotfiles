@@ -13,3 +13,6 @@
 [core]
 	excludesfile = /home/daniel/.gitignore.global
 	pager = less -x1,5
+[alias]
+	st = status
+	co = checkout

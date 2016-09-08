@@ -57,9 +57,10 @@ let g:ycm_filetype_blacklist = {
       \ 'go' : 1,
       \}
 
+hi CursorLine   cterm=NONE ctermbg=25
 " Make vim-go more responsive
 set nocursorcolumn
 set nocursorline
 syntax sync minlines=256
-set synmaxcol=128
+set synmaxcol=300
 set re=1
