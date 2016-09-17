@@ -137,12 +137,9 @@ bindsym $mod+Pause exec i3lock -t -i /usr/share/pixmaps/background.png
 
 
 # Volume control
-#bindsym XF86AudioRaiseVolume exec amixer -q set Master 3.2dB+ unmute
-#bindsym XF86AudioLowerVolume exec amixer -q set Master 3.2dB- unmute
-# Volume control with pulseaudio
-bindsym XF86AudioRaiseVolume exec "bash -c 'pactl set-sink-mute 1 false; pactl set-sink-volume 1 +5%'"
-bindsym XF86AudioLowerVolume exec "bash -c 'pactl set-sink-mute 1 false; pactl -- set-sink-volume 1 -5%'"
-bindsym XF86AudioMute exec amixer -q set Master toggle
+bindsym XF86AudioRaiseVolume exec "amixer -q set Master playback 5%+"
+bindsym XF86AudioLowerVolume exec "amixer -q set Master playback 5%-"
+bindsym XF86AudioMute exec "amixer -q set Master toggle"
 
 # Brightness control
 bindsym XF86MonBrightnessUp exec "xbacklight -inc 10"
