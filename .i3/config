@@ -32,8 +32,6 @@ bindsym $mod+semicolon focus right
 
 # alternatively, you can use the cursor keys:
 bindsym $mod+Left focus left
-bindsym $mod+Down focus down
-bindsym $mod+Up focus up
 bindsym $mod+Right focus right
 
 # move focused window
@@ -139,6 +137,8 @@ bindsym $mod+Pause exec i3lock -t -i /usr/share/pixmaps/background.png
 # Volume control
 bindsym XF86AudioRaiseVolume exec "amixer -q set Master playback 5%+"
 bindsym XF86AudioLowerVolume exec "amixer -q set Master playback 5%-"
+bindsym $mod+Up exec "amixer -q set Master playback 5%+"
+bindsym $mod+Down exec "amixer -q set Master playback 5%-"
 bindsym XF86AudioMute exec "amixer -q set Master toggle"
 
 # Brightness control

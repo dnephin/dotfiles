@@ -1,0 +1,16 @@
+#!/bin/bash
+
+set -e
+
+case "$1" in
+    off)
+        xrandr --output HDMI1 --off
+        xrandr --output eDP1  --auto ;;
+    only)
+        xrandr --output eDP1 --off
+        xrandr --output HDMI1 --mode 1920x1080 ;;
+    *)
+        xrandr --output eDP1  --auto
+        xrandr --output HDMI1 --same-as eDP1 --mode 1920x1080 ;;
+esac
+
