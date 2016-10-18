@@ -4,11 +4,14 @@ set -e
 
 case "$1" in
     off)
-        xrandr --output HDMI1 --off
-        xrandr --output eDP1  --auto ;;
+        xrandr --output eDP1  --auto
+        xrandr --output HDMI1 --off ;;
     only)
         xrandr --output eDP1 --off
         xrandr --output HDMI1 --mode 1920x1080 ;;
+    work)
+        xrandr --output eDP1 --auto
+        xrandr --output HDMI1 --mode 1920x1200 --left-of eDP1 ;;
     *)
         xrandr --output eDP1  --auto
         xrandr --output HDMI1 --same-as eDP1 --mode 1920x1080 ;;
