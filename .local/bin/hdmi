@@ -7,8 +7,8 @@ case "$1" in
         xrandr --output eDP1  --auto
         xrandr --output HDMI1 --off ;;
     only)
-        xrandr --output eDP1 --off
-        xrandr --output HDMI1 --mode 1920x1080 ;;
+        xrandr --output HDMI1 --mode 1920x1080 && \
+        xrandr --output eDP1 --off ;;
     work)
         xrandr --output eDP1 --auto
         xrandr --output HDMI1 --mode 1920x1200 --left-of eDP1 ;;

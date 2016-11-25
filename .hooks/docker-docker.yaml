@@ -16,7 +16,7 @@
       args: ["-s"]
       exclude: '^vendor/'
     - id: go-lint
-      exclude: '^vendor/'
+      exclude: '^(vendor/|api/types/)'
     - id: go-vet
       exclude: '^vendor/'
     - id: validate-toml
