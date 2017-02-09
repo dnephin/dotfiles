@@ -4,19 +4,20 @@
     - id: check-merge-conflict
     - id: end-of-file-fixer
       files: '\.(go|md|sh|yml|yaml|Dockerfile|json|ini)$'
-      exclude: '^vendor/'
+      exclude: '^(vendor/|cli/compose/schema/bindata.go)'
     - id: trailing-whitespace
       files: '\.(go|sh|yml|yaml|Dockerfile|json|ini)$'
-      exclude: '^vendor/'
+      exclude: '^(vendor/|cli/compose/schema/bindata.go)'
+    - id: check-json
 
 - repo: git://github.com/dnephin/pre-commit-golang
   sha: HEAD
   hooks:
     - id: go-fmt
       args: ["-s"]
-      exclude: '^vendor/'
+      exclude: '^(vendor/|cli/compose/schema/bindata.go)'
     - id: go-lint
-      exclude: '^vendor/'
+      exclude: '^(vendor/|api/types/|cli/compose/schema/bindata.go)'
     - id: go-vet
       exclude: '^vendor/'
     - id: validate-toml
