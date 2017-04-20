@@ -5,7 +5,7 @@ set -e
 TMPFILE=$(mktemp -d)
 
 
-docker run --rm -ti -v $TMPFILE:/go/bin golang:1.5 go get $@
+docker run --rm -ti -v $TMPFILE:/go/bin golang:1.8 go get $@
 
 echo $TMPFILE
 ls -1 $TMPFILE
