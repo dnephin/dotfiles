@@ -1,0 +1,18 @@
+
+FROM    golang:1.8
+
+RUN     apt-get update && apt-get install -y \
+            curl \
+            unzip \
+            make \
+            gcc \
+            git \
+            btrfs-tools
+
+ARG     PROTOBUF_SRC=https://github.com/google/protobuf/releases/download/
+ARG     PROTOBUF=3.2.0
+RUN     curl -o protoc.zip -sL \
+            ${PROTOBUF_SRC}/v${PROTOBUF}/protoc-${PROTOBUF}-linux-x86_64.zip && \
+        unzip -q protoc.zip -d /usr/local
+        
+WORKDIR /go/src/github.com/containerd/containerd

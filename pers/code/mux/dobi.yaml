@@ -1,0 +1,41 @@
+
+meta:
+  project: gorilla-mix
+
+mount=source:
+  bind: .
+  path: /go/src/github.com/gorilla/mux
+
+image=builder:
+  image: docker-proxy-dev
+  context: dobifiles/builder/
+  dockerfile: Dockerfile
+
+
+job=deps:
+  use: builder
+  mounts: [source]
+  command: 'glide install'
+
+job=shell:
+  use: builder
+  mounts: [source]
+  interactive: true
+  provide-docker: true
+  command: sh
+
+job=watch:
+  use: builder
+  mounts: [source]
+  interactive: true
+  command: script/watch
+
+job=binary:
+  use: builder
+  mounts: [source]
+  command: script/binary
+
+job=test-unit:
+  use: builder
+  mounts: [source]
+  command: "bash -c 'go test -v $(glide nv)'"

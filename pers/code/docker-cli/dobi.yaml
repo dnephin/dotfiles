@@ -1,0 +1,39 @@
+
+meta:
+  project: docker-cli
+
+mount=source:
+  bind: .
+  path: /go/src/github.com/docker/cli
+
+image=builder:
+  image: docker-cli-dev
+  context: dockerfiles/
+  dockerfile: Dockerfile.build
+
+job=shell:
+  use: builder
+  mounts: [source]
+  interactive: true
+  command: sh
+
+job=test-unit:
+  use: builder
+  mounts: [source]
+  interactive: true
+  command: 'go test -tags daemon -v ./cli ./client/ ./cmd/docker'
+
+job=vendor:
+  use: builder
+  mounts: [source]
+  command: vndr
+  sources: [vendor.conf]
+  artifact: [vendor/]
+
+job=binary:
+  use: builder
+  mounts: [source]
+  command: >
+    gox -output dist/docker-{{.OS}}-{{.Arch}}
+        -osarch="linux/arm linux/amd64 darwin/amd64 windows/amd64"
+        ./cmd/docker

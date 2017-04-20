@@ -1,0 +1,64 @@
+
+meta:
+    project: go-swagger
+    default: all
+
+mount=source:
+    bind: .
+    path: /go/src/github.com/go-swagger/go-swagger
+
+mount=dist:
+    bind: dist/bin
+    path: /go/bin
+
+
+image=builder:
+    image: go-swagger-dev
+    context: ./dockerfiles
+    dockerfile: Dockerfile.build
+
+
+job=binary:
+    use: builder
+    mounts: [source, dist]
+    command: "go install ./cmd/swagger"
+    depends: [generate]
+
+job=shell:
+    use: builder
+    mounts: [source, dist]
+    interactive: true
+    command: sh
+
+job=test-unit:
+    use: builder
+    mounts: [source, dist]
+    interactive: true
+    command: hack/test-unit.sh
+
+job=test-canary:
+    use: builder
+    mounts: [source, dist]
+    command: hack/run-canary.sh
+    depends: [binary]
+
+job=generate:
+    use: builder
+    mounts: [source]
+    command: "go generate ./generator"
+    artifact: generator/bindata.go
+    sources: [generator/templates]
+
+job=coverage:
+    use: builder
+    mounts: [source]
+    interactive: true
+    command: hack/coverage.sh
+    artifact: coverage.txt
+
+
+alias=test:
+    tasks: [test-unit, test-canary]
+
+alias=all:
+    tasks: [test, binary]
