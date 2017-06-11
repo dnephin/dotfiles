@@ -18,6 +18,10 @@ image=builder:
     context: .
     dockerfile: Dockerfile.build
 
+run=deps:
+    use: builder
+    mounts: [source]
+    command: glide install
 
 run=shell:
     use: builder
