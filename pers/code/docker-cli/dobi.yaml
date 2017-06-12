@@ -1,0 +1,95 @@
+
+meta:
+  project: docker-cli
+
+mount=source:
+  bind: .
+  path: /go/src/github.com/docker/cli
+
+# TODO: rename
+image=builder:
+  image: docker-cli-dev
+  context: dockerfiles/
+  dockerfile: Dockerfile.dev
+
+image=linter:
+  image: docker-cli-lint
+  context: dockerfiles/
+  dockerfile: Dockerfile.lint
+
+image=cross:
+  image: docker-cli-cross
+  context: .
+  dockerfile: dockerfiles/Dockerfile.cross
+
+job=shell:
+  use: builder
+  mounts: [source]
+  interactive: true
+  command: sh
+
+job=test-unit:
+  use: builder
+  mounts: [source]
+  interactive: true
+  command: make test
+
+job=watch:
+  use: builder
+  mounts: [source]
+  interactive: true
+  command: scripts/test/watch
+
+job=vendor:
+  use: builder
+  mounts: [source]
+  command: vndr
+  sources: [vendor.conf]
+  artifact: [vendor/]
+
+job=binary:
+  use: builder
+  mounts: [source]
+  command: make cross
+
+job=lint-shell:
+  use: linter
+  mounts: [source]
+  interactive: true
+  entrypoint: sh
+
+job=lint:
+  use: linter
+  mounts: [source]
+  interactive: true
+  env: [GOMAXPROCS=3]
+
+job=cross-shell:
+  use: cross
+  mounts: [source]
+  interactive: true
+  provide-docker: true
+  entrypoint: bash
+
+image=debug:
+  image: docker-cli-debug
+  context: .
+  steps: |
+      FROM docker-cli-dev:docker-cli-daniel
+      COPY . .
+
+mount=nogit:
+  bind: tmp/
+  path: /go/src/github.com/docker/cli/.git
+
+job=debug-no-git:
+  use: builder
+  mounts: [source, nogit]
+  interactive: true
+  command: sh
+
+job=check-bindata:
+  use: debug
+  interactive: true
+  command: sh
+#  command: 'bash -c "make -B compose-jsonschema; git st; sleep 20000"'

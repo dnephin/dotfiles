@@ -1,0 +1,30 @@
+
+meta:
+  project: containerd
+
+mount=source:
+  bind: .
+  path: /go/src/github.com/containerd/containerd
+
+image=builder:
+  image: containerd-dev
+  context: dobifiles/
+  dockerfile: Dockerfile.build
+
+
+job=binaries:
+  use: builder
+  interactive: true
+  mounts: [source]
+  command: "make binaries"
+  artifact: bin/
+
+job=shell:
+  use: builder
+  interactive: true
+  mounts: [source]
+  command: sh
+
+
+alias=binary:
+  tasks: [binaries]

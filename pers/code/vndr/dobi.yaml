@@ -1,0 +1,26 @@
+
+meta:
+  project: vndr
+
+mount=source:
+  bind: .
+  path: /go/src/github.com/LK4D4/vndr
+
+mount=dobifiles:
+  bind: dobifiles
+  path: /dobifiles
+
+image=builder:
+  image: vndr-dev
+  context: dobifiles/
+  steps: |
+    FROM    golang:1.8-alpine
+    RUN     apk add -U git
+    WORKDIR /go/src/github.com/LK4D4/vndr
+  depends: [dobifiles]
+
+job=shell:
+  use: builder
+  mounts: [source]
+  interactive: true
+  command: sh

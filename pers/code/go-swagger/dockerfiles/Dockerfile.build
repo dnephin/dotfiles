@@ -1,0 +1,11 @@
+FROM    golang:1.7
+
+WORKDIR /go/src/github.com/go-swagger/go-swagger
+
+RUN     go get github.com/dnephin/filewatcher && \
+        cp /go/bin/filewatcher /usr/bin/ && \
+        rm -rf /go/src/* /go/pkg/* /go/bin/*
+
+RUN     go get github.com/jteeuwen/go-bindata/go-bindata && \
+        cp /go/bin/go-bindata /usr/bin/ && \
+        rm -rf /go/src/* /go/pkg/* /go/bin/*

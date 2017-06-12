@@ -1,0 +1,47 @@
+
+meta:
+    project: cobra
+    default: all
+
+
+mount=source:
+    bind: .
+    path: /go/src/github.com/spf13/cobra
+
+mount=dist:
+    bind: ./dist/bin/
+    path: /go/bin/
+
+
+image=builder:
+    image: cobra-dev
+    context: .
+    dockerfile: Dockerfile.build
+
+run=deps:
+    use: builder
+    mounts: [source]
+    command: glide install
+
+run=shell:
+    use: builder
+    interactive: true
+    mounts: [source, dist]
+    command: bash
+
+run=test-unit:
+    use: builder
+    mounts: [source]
+    interactive: true
+    command: "bash -c 'go test -v $(glide nv)'"
+
+run=binary:
+    use: builder
+    mounts: [source, dist]
+    command: "go install ./cobra"
+
+alias=test:
+    tasks: [test-unit]
+
+alias=all:
+    tasks: [test]

@@ -1,0 +1,45 @@
+
+meta:
+  project: highlight-js
+
+mount=source:
+  bind: .
+  path: /work
+
+image=builder:
+  image: highlight-js-dev
+  context: dobifiles/
+  steps: |
+    FROM    node:7.9-alpine
+    WORKDIR /work
+
+job=deps:
+  use: builder
+  mounts: [source]
+  command: "npm install"
+  sources: package.json
+  artifact: [node_modules/]
+  description: "Install or update node_modules"
+
+job=shell:
+  use: builder
+  mounts: [source]
+  interactive: true
+  command: sh
+  description: "Start an interactive development shell"
+
+job=build:
+  use: builder
+  mounts: [source]
+  command: "sh -c 'node tools/build.js $BUILD_ARGS'"
+  env:
+    - "BUILD_ARGS={env.BUILD_ARGS: -t node}"
+  artifact: [build/]
+  description: "Build the package"
+
+job=test-unit:
+  use: builder
+  mounts: [source]
+  command: "npm test"
+  interactive: true
+  depends: [build]

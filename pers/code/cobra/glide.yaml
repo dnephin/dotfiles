@@ -1,0 +1,9 @@
+package: github.com/spf13/cobra
+import:
+- package: github.com/cpuguy83/go-md2man
+  subpackages:
+  - md2man
+- package: github.com/inconshreveable/mousetrap
+- package: github.com/spf13/pflag
+  version: e57e3eeb33f795204c1ca35f56c44f83227c6e66
+- package: github.com/spf13/viper
