@@ -64,3 +64,6 @@ set nocursorline
 syntax sync minlines=256
 set synmaxcol=300
 set re=1
+
+" yaml
+au FileType yaml set tabstop=2
