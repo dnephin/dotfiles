@@ -1,0 +1,8 @@
+
+FROM golang:1.8-alpine
+
+RUN apk -U add git
+
+CMD go get -u gopkg.in/alecthomas/gometalinter.v1 && \
+    mv /go/bin/gometalinter.v1 /go/bin/gometalinter && \
+    gometalinter --install

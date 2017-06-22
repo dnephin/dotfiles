@@ -61,7 +61,6 @@ job=lint-shell:
 job=lint:
   use: linter
   mounts: [source]
-  interactive: true
   env: [GOMAXPROCS=3]
 
 job=cross-shell:

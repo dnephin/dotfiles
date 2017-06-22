@@ -5,7 +5,11 @@ set -e
 TMPFILE=$(mktemp -d)
 
 
-docker run --rm -ti -v $TMPFILE:/go/bin golang:1.8 go get $@
+docker run --rm -ti \
+    -e CGO_ENABLED=0 \
+    -v $TMPFILE:/go/bin \
+    golang:1.8-alpine \
+    sh -c "apk add -U git; go get $@"
 
 echo $TMPFILE
 ls -1 $TMPFILE

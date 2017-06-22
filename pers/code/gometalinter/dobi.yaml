@@ -1,0 +1,18 @@
+
+meta:
+  project: gometalinter
+
+mount=source:
+  bind: .
+  path: /go/src/github.com/alecthomas/gometalinter
+
+image=builder:
+  image: gometalinter-dev
+  context: dobifiles/
+  dockerfile: Dockerfile
+
+job=shell:
+  use: builder
+  mounts: [source]
+  interactive: true
+  command: sh
