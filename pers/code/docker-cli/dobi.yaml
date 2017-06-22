@@ -50,7 +50,7 @@ job=vendor:
 job=binary:
   use: builder
   mounts: [source]
-  command: make cross
+  command: make binary
 
 job=lint-shell:
   use: linter
