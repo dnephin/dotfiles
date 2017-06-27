@@ -1,4 +1,3 @@
-
 meta:
   project: gometalinter
 
@@ -16,3 +15,35 @@ job=shell:
   mounts: [source]
   interactive: true
   command: sh
+
+job=watch:
+  use: builder
+  mounts: [source]
+  interactive: true
+  command: scripts/watch
+
+job=test-unit:
+  use: builder
+  mounts: [source]
+  interactive: true
+  command: go test -v .
+
+job=test-regression:
+  use: builder
+  mounts: [source]
+  interactive: true
+  command: scripts/test-regression
+  depends: [binary]
+
+job=binary:
+  use: builder
+  mounts: [source]
+  command: scripts/binary
+
+alias=test:
+  tasks: [test-unit, test-regression]
+
+job=lint:
+  use: builder
+  mounts: [source]
+  command: bash -c "dist/gometalinter --install && dist/gometalinter"
