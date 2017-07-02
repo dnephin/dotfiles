@@ -2,7 +2,8 @@ FROM    golang:1.8-alpine
 
 RUN     apk add -U curl git bash
 
-RUN     go get github.com/dnephin/filewatcher && \
+RUN     cache=2017-07-02; \
+        go get github.com/dnephin/filewatcher && \
         cp /go/bin/filewatcher /usr/bin/ && \
         rm -rf /go/src/* /go/pkg/* /go/bin/*
 
