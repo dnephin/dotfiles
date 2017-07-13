@@ -1,0 +1,48 @@
+
+meta:
+  project: pipeline
+
+mount=source:
+  bind: .
+  path: /go/src/github.com/docker/pipeline
+
+image=builder:
+  image: pipeline-dev
+  context: dockerfiles/
+  dockerfile: Dockerfile.build
+
+
+job=deps:
+  use: builder
+  mounts: [source]
+  command: 'vndr'
+
+job=shell:
+  use: builder
+  mounts: [source]
+  interactive: true
+  provide-docker: true
+  command: sh
+
+job=watch:
+  use: builder
+  mounts: [source]
+  interactive: true
+  command: script/watch
+
+job=binary:
+  use: builder
+  mounts: [source]
+  command: script/binary
+
+job=test-unit:
+  use: builder
+  mounts: [source]
+  command: "scripts/test-unit.sh"
+
+job=plugin-imagefs:
+  use: builder
+  mounts: [source]
+  interactive: true
+  provide-docker: true
+  command: "scripts/build-plugins.sh"

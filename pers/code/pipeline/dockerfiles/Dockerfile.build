@@ -1,0 +1,21 @@
+FROM    golang:1.7-alpine3.5
+
+RUN     apk add -U git bash curl tree alpine-sdk
+RUN     git config --global http.https://gopkg.in.followRedirects true
+
+ARG     VNDR_SHA=9909bb2b8a0b7ea464527b376dc50389c90df587
+RUN     go get github.com/LK4D4/vndr && \
+        cd /go/src/github.com/LK4D4/vndr && \
+        git checkout -q "$VNDR_SHA" && \
+        go build -v -o /usr/bin/vndr . && \
+        rm -rf /go/src/* /go/pkg/* /go/bin/*
+
+ARG     FILEWATCHER_SHA=2e12ea42f6c8c089b19e992145bb94e8adaecedb
+RUN     go get github.com/dnephin/filewatcher && \
+        cd /go/src/github.com/dnephin/filewatcher && \
+        git checkout -q "$FILEWATCHER_SHA" && \
+        go build -v -o /usr/bin/filewatcher . && \
+        rm -rf /go/src/* /go/pkg/* /go/bin/*
+
+WORKDIR /go/src/github.com/docker/pipeline
+ENV     PS1="# "

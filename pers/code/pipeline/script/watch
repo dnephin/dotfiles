@@ -1,0 +1,2 @@
+#!/bin/bash
+exec filewatcher go test -v './${dir}'

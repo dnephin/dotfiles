@@ -1,0 +1,8 @@
+#!/usr/bin/env sh
+set -eu
+
+export CGO_ENABLED=0
+source ./script/.variables
+
+go build -ldflags "$LDFLAGS" -o dist/plugin-imagefs ./plugins/imagefs
+
