@@ -46,3 +46,11 @@ job=plugin-imagefs:
   interactive: true
   provide-docker: true
   command: "scripts/build-plugins.sh"
+
+
+# A data-only image for testing imagefs volume plugin
+image=mydata:
+  image: mydata
+  tags: [latest]
+  context: dockerfiles/data
+  dockerfile: Dockerfile

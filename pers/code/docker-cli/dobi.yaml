@@ -22,6 +22,11 @@ image=cross:
   context: .
   dockerfile: dockerfiles/Dockerfile.cross
 
+image=shellchecker:
+  image: docker-cli-shellcheck
+  context: dockerfiles/
+  dockerfile: Dockerfile.shellcheck
+
 job=shell:
   use: builder
   mounts: [source]
@@ -92,3 +97,14 @@ job=check-bindata:
   interactive: true
   command: sh
 #  command: 'bash -c "make -B compose-jsonschema; git st; sleep 20000"'
+
+job=shellcheck:
+  use: shellchecker
+  mounts: [source]
+  interactive: true
+  command: make shellcheck
+
+job=shellcheck-shell:
+  use: shellchecker
+  mounts: [source]
+  interactive: true
