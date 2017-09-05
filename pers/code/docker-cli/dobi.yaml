@@ -6,6 +6,10 @@ mount=source:
   bind: .
   path: /go/src/github.com/docker/cli
 
+mount=depsources:
+ bind: ./.depsources
+ path: /go/pkg/dep/sources
+
 # TODO: rename
 image=builder:
   image: docker-cli-dev
@@ -29,7 +33,7 @@ image=shellchecker:
 
 job=shell:
   use: builder
-  mounts: [source]
+  mounts: [source, depsources]
   interactive: true
   command: sh
 
@@ -37,19 +41,22 @@ job=test-unit:
   use: builder
   mounts: [source]
   interactive: true
-  command: make test
+  command: make test-unit
 
 job=watch:
   use: builder
   mounts: [source]
   interactive: true
-  command: scripts/test/watch
+  command: scripts/test/watch-sum
+  env:
+    - 'TEST_DOCKER_HOST={env.TEST_DOCKER_HOST:}'
+  net-mode: "{env.TEST_NET:}"
 
 job=vendor:
   use: builder
-  mounts: [source]
-  command: vndr
-  sources: [vendor.conf]
+  mounts: [source, depsources]
+  command: dep
+  sources: [Gopkg.toml, Gopkg.lock]
   artifact: [vendor/]
 
 job=binary:
