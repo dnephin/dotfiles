@@ -2,7 +2,6 @@
 
 exec filewatcher \
     -x 'vendor' \
-    -x 'regressiontests' \
     -x 'dist' \
     -x 'scripts' \
-    go test -v -timeout 10s './${dir}'
+    go test -v -timeout 30s './${dir}'
