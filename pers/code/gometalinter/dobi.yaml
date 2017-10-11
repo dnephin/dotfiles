@@ -10,6 +10,15 @@ image=builder:
   context: dobifiles/
   dockerfile: Dockerfile
 
+image=dist:
+  image: dnephin/gometalinter
+  tags: ['master-go{env.GO_VERSION}']
+  args:
+    GO_VERSION: '{env.GO_VERSION}'
+  context: .
+  dockerfile: dobifiles/Dockerfile.dist
+  depends: [binary]
+
 job=shell:
   use: builder
   mounts: [source]
