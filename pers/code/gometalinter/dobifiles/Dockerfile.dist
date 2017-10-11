@@ -1,0 +1,11 @@
+ARG     GO_VERSION=1.9.1
+FROM    golang:${GO_VERSION}-alpine as builder
+
+COPY    dist/gometalinter /usr/local/bin/gometalinter
+COPY    . /go/src/github.com/alecthomas/gometalinter
+RUN     gometalinter --install
+
+FROM    golang:${GO_VERSION}-alpine
+COPY    --from=builder /usr/local/bin/gometalinter /usr/local/bin/gometalinter
+COPY    --from=builder /go/bin /go/bin
+ENTRYPOINT ["/usr/local/bin/gometalinter"]
