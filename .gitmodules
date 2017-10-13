@@ -35,3 +35,6 @@
 [submodule ".vim/bundle/vim-toml-enhance"]
 	path = .vim/bundle/vim-toml-enhance
 	url = git@github.com:maralla/vim-toml-enhance.git
+[submodule "/home/daniel/.vim/bundle/vim-javascript"]
+	path = /home/daniel/.vim/bundle/vim-javascript
+	url = https://github.com/pangloss/vim-javascript.git
