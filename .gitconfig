@@ -16,3 +16,5 @@
 [alias]
 	st = status
 	co = checkout
+[http]
+	cookiefile = /home/daniel/.gitcookies
