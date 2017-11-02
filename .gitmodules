@@ -36,5 +36,8 @@
 	path = .vim/bundle/vim-toml-enhance
 	url = git@github.com:maralla/vim-toml-enhance.git
 [submodule ".vim/bundle/vim-javascript"]
-	path = /home/daniel/.vim/bundle/vim-javascript
+	path = .vim/bundle/vim-javascript
 	url = https://github.com/pangloss/vim-javascript.git
+[submodule ".vim/bundle/vim-ps1"]
+	path = .vim/bundle/vim-ps1
+	url = https://github.com/PProvost/vim-ps1.git
