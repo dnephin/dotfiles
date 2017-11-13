@@ -1,0 +1,14 @@
+#!/usr/bin/env bash
+set -e
+
+ROOT=/tmp/containerd-dev
+
+mkdir -p $ROOT/state $ROOT/root 
+
+export PATH=~/.local/bin/:$PATH
+
+containerd \
+    --log-level info \
+    --state $ROOT/state \
+    --root $ROOT/root \
+    -c default.toml

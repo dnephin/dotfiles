@@ -1,5 +1,5 @@
 
-FROM    golang:1.8
+FROM    golang:1.9.2
 
 RUN     apt-get update && apt-get install -y \
             curl \
@@ -14,5 +14,12 @@ ARG     PROTOBUF=3.2.0
 RUN     curl -o protoc.zip -sL \
             ${PROTOBUF_SRC}/v${PROTOBUF}/protoc-${PROTOBUF}-linux-x86_64.zip && \
         unzip -q protoc.zip -d /usr/local
+
+ARG     FILEWATCHER_SHA=2e12ea42f6c8c089b19e992145bb94e8adaecedb
+RUN     go get -d github.com/dnephin/filewatcher && \
+        cd /go/src/github.com/dnephin/filewatcher && \
+        git checkout -q "$FILEWATCHER_SHA" && \
+        go build -v -o /usr/bin/filewatcher . && \
+        rm -rf /go/src/* /go/pkg/* /go/bin/*
         
 WORKDIR /go/src/github.com/containerd/containerd
