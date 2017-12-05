@@ -1,0 +1,6 @@
+.depsources
+.dobi
+.gitignore
+Gopkg.*
+vendor
+dobi.yaml

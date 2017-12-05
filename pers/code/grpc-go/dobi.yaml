@@ -1,0 +1,69 @@
+meta:
+  project: grpc-go 
+
+mount=source:
+  bind: .
+  path: /go/src/google.golang.org/grpc
+
+mount=depsources:
+ bind: ./.depsources
+ path: /go/pkg/dep/sources
+
+image=builder:
+  image: gotestyourself-dev
+  context: dobifiles/
+  steps: |
+    FROM    golang:1.9-alpine
+    RUN     apk add -U curl git bash
+
+    ARG     FILEWATCHER_SHA=2e12ea42f6c8c089b19e992145bb94e8adaecedb
+    RUN     go get -d github.com/dnephin/filewatcher && \
+            cd /go/src/github.com/dnephin/filewatcher && \
+            git checkout -q "$FILEWATCHER_SHA" && \
+            go build -v -o /usr/bin/filewatcher . && \
+            rm -rf /go/src/* /go/pkg/* /go/bin/*
+
+    ARG     DEP_TAG=v0.3.2
+    RUN     go get -d github.com/golang/dep/cmd/dep && \
+            cd /go/src/github.com/golang/dep && \
+            git checkout -q "$DEP_TAG" && \
+            go build -v -o /usr/bin/dep ./cmd/dep && \
+            rm -rf /go/src/* /go/pkg/* /go/bin/*
+
+    ENV     CGO_ENABLED=0 PS1="# "
+    WORKDIR /go/src/google.golang.org/grpc
+
+image=linter:
+  image: gotestyourself-lint
+  context: dobifiles/
+  dockerfile: Dockerfile.lint
+
+job=shell:
+  use: builder
+  mounts: [source, depsources]
+  interactive: true
+  command: sh
+
+job=watch:
+  use: builder
+  mounts: [source]
+  interactive: true
+  command: filewatcher -x 'vendor' go test -v './${dir}'
+
+job=test-unit:
+  use: builder
+  mounts: [source]
+  interactive: true
+  command: go test -v ./...
+
+job=deps:
+  use: builder
+  mounts: [source, depsources]
+  command: dep ensure
+
+job=lint:
+  use: linter
+  mounts: [source]
+
+alias=test:
+  tasks: [test-unit]

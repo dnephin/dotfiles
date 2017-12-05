@@ -3,9 +3,9 @@ set -e
 
 ROOT=/tmp/containerd-dev
 
-mkdir -p $ROOT/state $ROOT/root 
+mkdir -p $ROOT/state $ROOT/root
 
-export PATH=~/.local/bin/:$PATH
+export PATH=$PWD/bin/:$PATH
 
 containerd \
     --log-level info \
