@@ -37,3 +37,4 @@ for f in ~/.bash_complete/*; do source $f; done
 source ~/.bash_alias
 [ -f ~/.bash_path ] && source ~/.bash_path
 [ -f ~/.bash_local ] && source ~/.bash_local
+source <(kubectl completion bash)

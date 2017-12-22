@@ -67,3 +67,6 @@ set re=1
 
 " yaml
 au FileType yaml set tabstop=2
+
+let g:javascript_plugin_flow = 1
+au FileType javascript colorscheme leo
