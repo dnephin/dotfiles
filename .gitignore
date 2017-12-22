@@ -26,3 +26,5 @@
 
 # Ignore misc
 /.goutputstream-*
+
+.gitcookies

@@ -6,6 +6,10 @@ mount=source:
   bind: .
   path: /go/src/github.com/containerd/containerd
 
+mount=gobin:
+  bind: ./gobin
+  path: /go/bin
+
 image=builder:
   image: containerd-dev
   context: dobifiles/
@@ -16,15 +20,26 @@ job=binaries:
   use: builder
   interactive: true
   mounts: [source]
-  command: "make binaries"
+  command: make binaries
   artifact: bin/
 
 job=shell:
   use: builder
   interactive: true
-  mounts: [source]
-  command: sh
+  mounts: [source, gobin]
+  command: bash
 
+job=watch:
+  use: builder
+  interactive: true
+  mounts: [source]
+  command: script/watch
+
+job=lint:
+  use: builder
+  interactive: true
+  mounts: [source, gobin]
+  command: make check
 
 alias=binary:
   tasks: [binaries]
