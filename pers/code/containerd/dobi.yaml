@@ -15,7 +15,6 @@ image=builder:
   context: dobifiles/
   dockerfile: Dockerfile.build
 
-
 job=binaries:
   use: builder
   interactive: true
@@ -28,12 +27,15 @@ job=shell:
   interactive: true
   mounts: [source, gobin]
   command: bash
+  privileged: true
 
 job=watch:
   use: builder
   interactive: true
   mounts: [source]
   command: script/watch
+  env:
+   - 'TESTFLAGS={env.TESTFLAGS:}'
 
 job=lint:
   use: builder

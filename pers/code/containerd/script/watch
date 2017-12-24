@@ -4,4 +4,4 @@ exec filewatcher \
     -x vendor \
     -x bin \
     -- \
-    go test -v -timeout 10s './${dir}'
+    go test -v -timeout 10s $TESTFLAGS './${dir}'
