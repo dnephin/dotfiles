@@ -1,16 +1,16 @@
 meta:
-  project: grpc-go 
+  project: protobuild 
 
 mount=source:
   bind: .
-  path: /go/src/google.golang.org/grpc
+  path: /go/src/github.com/stevvooe/protobuild
 
 mount=depsources:
  bind: ./.depsources
  path: /go/pkg/dep/sources
 
 image=builder:
-  image: go-grpc-dev
+  image: protobuild-dev
   context: dobifiles/
   steps: |
     FROM    golang:1.9-alpine
@@ -30,8 +30,8 @@ image=builder:
             go build -v -o /usr/bin/dep ./cmd/dep && \
             rm -rf /go/src/* /go/pkg/* /go/bin/*
 
-    ENV     CGO_ENABLED=0 PS1="# "
-    WORKDIR /go/src/google.golang.org/grpc
+    ENV     CGO_ENABLED=0 PS1='# '
+    WORKDIR /go/src/github.com/stevvooe/protobuild
 
 job=shell:
   use: builder

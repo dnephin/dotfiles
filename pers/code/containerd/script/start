@@ -8,7 +8,7 @@ mkdir -p $ROOT/state $ROOT/root
 export PATH=$PWD/bin/:$PATH
 
 containerd \
-    --log-level info \
+    --log-level debug \
     --state $ROOT/state \
     --root $ROOT/root \
     -c default.toml

@@ -32,5 +32,6 @@ RUN     go get -d github.com/dnephin/filewatcher && \
 #	wget https://github.com/google/protobuf/releases/download/v3.3.0/protoc-3.3.0-linux-x86_64.zip -O /tmp/protoc-3.3.0-linux-x86_64.zip
 #	unzip -o -d /usr/local /tmp/protoc-3.3.0-linux-x86_64.zip
 
-
+RUN     echo 'export PS1="# "' >> /root/.bashrc
 WORKDIR /go/src/github.com/containerd/containerd
+ENV     PATH=/go/src/github.com/containerd/containerd/bin:$PATH

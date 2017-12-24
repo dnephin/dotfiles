@@ -3,4 +3,11 @@
     <keyboard-shortcut first-keystroke="ctrl d" />
   </action>
   <action id="EditorDuplicate" />
+  <action id="FindNext">
+    <keyboard-shortcut first-keystroke="f3" />
+  </action>
+  <action id="GotoLine">
+    <keyboard-shortcut first-keystroke="ctrl l" />
+  </action>
+  <action id="Vcs.Log.FocusTextFilter" />
 </keymap>
