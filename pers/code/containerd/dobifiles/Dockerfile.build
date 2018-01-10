@@ -10,7 +10,8 @@ RUN     apt-get update && apt-get install -y \
             btrfs-tools \
             # Deps for integration testing
             libnet-dev libprotobuf-dev libprotobuf-c0-dev protobuf-c-compiler \
-            protobuf-compiler python-protobuf libnl-3-dev libcap-dev
+            protobuf-compiler python-protobuf libnl-3-dev libcap-dev \
+            libseccomp-dev
 
 # TODO: replace with make install-runc protoc install-criu when it's available
 ARG     PROTOBUF_SRC=https://github.com/google/protobuf/releases/download/

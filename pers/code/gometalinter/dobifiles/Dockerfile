@@ -14,7 +14,10 @@ RUN     go get github.com/FiloSottile/gvt && \
         rm -rf /go/src/* /go/pkg/* /go/bin/*
 
 RUN     go get github.com/stretchr/testify && \
-        go get github.com/gotestyourself/gotestyourself
+        go get github.com/gotestyourself/gotestyourself && \
+        go get github.com/google/go-cmp/cmp && \
+        go get github.com/pkg/errors && \
+        go get github.com/pmezard/go-difflib/difflib
 
 WORKDIR /go/src/github.com/alecthomas/gometalinter
 ENV     CGO_ENABLED=0

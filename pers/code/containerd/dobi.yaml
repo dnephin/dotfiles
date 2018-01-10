@@ -10,6 +10,15 @@ mount=gobin:
   bind: ./gobin
   path: /go/bin
 
+mount=testroot:
+  bind: /tmp/ctrd-test
+  path: /var/lib/containerd-test
+
+# TODO: Replace with tmpfs in container
+mount=tmproot:
+  bind: /tmp/ctrd-test-tmp
+  path: /tmp
+
 image=builder:
   image: containerd-dev
   context: dobifiles/
@@ -25,17 +34,18 @@ job=binaries:
 job=shell:
   use: builder
   interactive: true
-  mounts: [source, gobin]
+  mounts: [source, gobin, testroot, tmproot]
   command: bash
   privileged: true
 
 job=watch:
   use: builder
   interactive: true
-  mounts: [source]
+  mounts: [source, testroot, tmproot]
   command: script/watch
   env:
    - 'TESTFLAGS={env.TESTFLAGS:}'
+  privileged: true
 
 job=lint:
   use: builder
