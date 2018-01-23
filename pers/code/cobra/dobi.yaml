@@ -3,7 +3,6 @@ meta:
     project: cobra
     default: all
 
-
 mount=source:
     bind: .
     path: /go/src/github.com/spf13/cobra
@@ -11,7 +10,6 @@ mount=source:
 mount=dist:
     bind: ./dist/bin/
     path: /go/bin/
-
 
 image=builder:
     image: cobra-dev
@@ -28,6 +26,13 @@ run=shell:
     interactive: true
     mounts: [source, dist]
     command: bash
+
+job=watch:
+    use: builder
+    mounts: [source]
+    interactive: true
+    command: | 
+      filewatcher go test -v ./${dir}
 
 run=test-unit:
     use: builder
