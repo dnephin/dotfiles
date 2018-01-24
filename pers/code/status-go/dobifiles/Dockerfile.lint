@@ -1,0 +1,15 @@
+FROM    golang:1.9.2-alpine
+
+RUN     apk add -U git gcc musl-dev
+
+ARG     GOMETALINTER_SHA=6a0f4efec615ea9bd4423508fb88c48d244a6a43
+RUN     go get -d github.com/alecthomas/gometalinter && \
+        cd /go/src/github.com/alecthomas/gometalinter && \
+        git checkout -q "$GOMETALINTER_SHA" && \
+        go build -v -o /usr/local/bin/gometalinter . && \ 
+        gometalinter --install && \
+        rm -rf /go/src/* /go/pkg/*
+
+WORKDIR /go/src/github.com/status-im/status-go
+ENTRYPOINT ["/usr/local/bin/gometalinter"]
+CMD     ["-j", "2", "./..."]
