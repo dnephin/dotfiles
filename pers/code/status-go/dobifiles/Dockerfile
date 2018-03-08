@@ -1,4 +1,5 @@
-FROM    golang:1.8.3-alpine
+ARG     GOLANG_VERSION
+FROM    golang:${GOLANG_VERSION:-1.9.2-alpine}
 
 RUN     apk add -U curl git bash
 
@@ -9,15 +10,12 @@ RUN     go get -d github.com/dnephin/filewatcher && \
         go build -v -o /usr/bin/filewatcher . && \
         rm -rf /go/src/* /go/pkg/* /go/bin/*
 
-RUN     go get github.com/FiloSottile/gvt && \
-        cp /go/bin/gvt /usr/bin/ && \
+ARG     DEP_TAG=v0.3.2
+RUN     go get -d github.com/golang/dep/cmd/dep && \
+        cd /go/src/github.com/golang/dep && \
+        git checkout -q "$DEP_TAG" && \
+        go build -v -o /usr/bin/dep ./cmd/dep && \
         rm -rf /go/src/* /go/pkg/* /go/bin/*
 
-RUN     go get github.com/stretchr/testify && \
-        go get github.com/gotestyourself/gotestyourself && \
-        go get github.com/google/go-cmp/cmp && \
-        go get github.com/pkg/errors && \
-        go get github.com/pmezard/go-difflib/difflib
-
-WORKDIR /go/src/github.com/alecthomas/gometalinter
+WORKDIR /go/src/github.com/gotestyourself/gotestyourself
 ENV     CGO_ENABLED=0
