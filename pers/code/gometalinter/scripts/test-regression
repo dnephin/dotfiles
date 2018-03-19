@@ -1,4 +1,5 @@
 #!/bin/bash
 set -eu
+./script/binary
 ./dist/gometalinter --install
 go test -v ./regressiontests
