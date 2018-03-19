@@ -4,10 +4,10 @@
 execute pathogen#infect()
 
 set tabstop=4
+set shiftwidth=4
 set expandtab
 set autoindent
 set smartindent
-set shiftwidth=4
 set modeline
 
 set hlsearch
@@ -66,4 +66,5 @@ set synmaxcol=300
 set re=1
 
 " yaml
-au FileType yaml set tabstop=2
+au FileType yaml set tabstop=2 shiftwidth=2
+au FileType js set tabstop=2 shiftwidth=2
