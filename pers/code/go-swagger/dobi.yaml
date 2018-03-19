@@ -14,7 +14,7 @@ mount=dist:
 
 image=builder:
     image: go-swagger-dev
-    context: ./dockerfiles
+    context: ./dobifiles
     dockerfile: Dockerfile.build
 
 
