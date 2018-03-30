@@ -1,0 +1,10 @@
+#!/bin/bash
+set -e -o pipefail
+
+set -x
+
+next="$(netctl list | grep $1 | cut -d\  -f3-)"
+
+sudo netctl stop-all
+sudo netctl start "$next"
+
