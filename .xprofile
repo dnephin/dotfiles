@@ -1,3 +1,5 @@
+#!/usr/bin/env bash
+#
 # Set keyboard repeat rate
 xset r rate 200 60
 
@@ -7,6 +9,4 @@ if command -v syndaemon > /dev/null; then
     syndaemon -t -k -i 0.4 -d
 fi
 
-if xrandr --listmonitors | grep DVI-I-1 > /dev/null; then
-    xrandr --output DVI-I-1 --auto --left-of HDMI-1
-fi
+[ -f .xprofile_local ] && source .xprofile_local
