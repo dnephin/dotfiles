@@ -154,8 +154,8 @@ bindsym XF86MonBrightnessDown exec "xbacklight -dec 10"
 # Style
 bar {
   position top
-        status_command i3status
-        tray_output primary
+  status_command i3status
+  mode hide
   colors {
     separator #666666
     background #333333
