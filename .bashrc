@@ -40,6 +40,6 @@ source ~/.bash_alias
 [ -f ~/.bash_path ] && source ~/.bash_path
 [ -f ~/.bash_local ] && source ~/.bash_local
 
-if command -v kubectl; then
+if command -v kubectl > /dev/null; then
     source <(kubectl completion bash)
 fi
