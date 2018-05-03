@@ -1,0 +1,44 @@
+meta:
+  project: centrifuge
+
+mount=source:
+  bind: .
+  path: /go/src/github.com/circleci/centrifuge
+
+mount=depsources:
+  bind: ./.depsources
+  path: /go/pkg/dep/sources
+
+mount=sshagent:
+  bind: "{env.SSH_AUTH_SOCK}"
+  path: /tmp/sshagent.sock
+
+image=builder:
+  image: centrifuge-dev
+  context: dobifiles/
+  dockerfile: Dockerfile.dev
+
+job=shell:
+  use: builder
+  mounts: [source, depsources, sshagent]
+  env: [SSH_AUTH_SOCK=/tmp/sshagent.sock]
+  interactive: true
+  command: sh
+
+job=watch:
+  use: builder
+  mounts: [source]
+  interactive: true
+  command: scripts/watch
+  env: ['TESTFLAGS={env.TESTFLAGS:}']
+
+job=deps:
+  use: builder
+  mounts: [source, depsources, sshagent]
+  env: [SSH_AUTH_SOCK=/tmp/sshagent.sock]
+  command: dep ensure
+
+job=lint:
+  use: builder
+  mounts: [source]
+  command: gometalinter ./...

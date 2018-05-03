@@ -1,0 +1,38 @@
+FROM    golang:1.10-alpine as builder
+RUN     apk add -U git
+
+ARG     FILEWATCHER=v0.2.1
+RUN     go get -d github.com/dnephin/filewatcher && \
+        cd /go/src/github.com/dnephin/filewatcher && \
+        git checkout -q "$FILEWATCHER" && \
+        go install .
+
+ARG     DEP=v0.4.1
+RUN     go get -d github.com/golang/dep/cmd/dep && \
+        cd /go/src/github.com/golang/dep && \
+        git checkout -q "$DEP" && \
+        go install ./cmd/dep
+
+ARG     GOMETALINTER=v2.0.5
+RUN     go get -d github.com/alecthomas/gometalinter && \
+        cd /go/src/github.com/alecthomas/gometalinter && \
+        git checkout -q "$GOMETALINTER" && \
+        go install . && \
+        /go/bin/gometalinter --install
+
+ARG		COUNTERFEITER=c1996179167e70f7a863c4d04dcaa6981109afed
+RUN		go get -d github.com/maxbrunsfeld/counterfeiter && \
+		cd /go/src/github.com/maxbrunsfeld/counterfeiter && \
+		git checkout -q "$COUNTERFEITER" && \
+		go install .
+
+
+FROM    golang:1.10-alpine
+COPY	--from=builder /go/bin /usr/local/bin
+RUN     apk add -U curl git bash openssh-client make
+RUN		git config --global url."https://github.com/".insteadOf 'git@github.com:'
+RUN		mkdir -p /root/.ssh && ssh-keyscan github.com > /root/.ssh/known_hosts
+
+ENV     PS1="# "
+WORKDIR /go/src/github.com/circleci/centrifuge
+ENV		BUILDTAGS="" CGO_ENABLED=0
