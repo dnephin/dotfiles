@@ -23,7 +23,7 @@ job=shell:
   mounts: [source, depsources, sshagent]
   env: [SSH_AUTH_SOCK=/tmp/sshagent.sock]
   interactive: true
-  command: sh
+  command: bash
 
 job=watch:
   use: builder

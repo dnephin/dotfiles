@@ -32,13 +32,24 @@ RUN		go get -d gotest.tools/gotestsum && \
 		git checkout -q "$GOTESTSUM" && \
 		go install .
 
+ARG     BINDATA=a0ff2567cfb70903282db057e799fd826784d41d
+RUN     go get -d github.com/dantoml/go-bindata && \
+        mv /go/src/github.com/dantoml /go/src/github.com/jteeuwen && \
+        cd /go/src/github.com/jteeuwen/go-bindata && \
+        git checkout -q "$BINDATA" && \
+        go install ./go-bindata
+
+# TODO: move these to Gopkg.toml?
+RUN     go get github.com/golang/mock/mockgen
+RUN     go get github.com/golang/protobuf/protoc-gen-go
+
 
 FROM    golang:1.10-alpine
-COPY	--from=builder /go/bin /usr/local/bin
 RUN     apk add -U curl git bash openssh-client make
 RUN		git config --global url."https://github.com/".insteadOf 'git@github.com:'
 RUN		mkdir -p /root/.ssh && ssh-keyscan github.com > /root/.ssh/known_hosts
 
+COPY	--from=builder /go/bin /usr/local/bin
 ENV     PS1="# "
 WORKDIR /go/src/github.com/circleci/build-agent
 ENV		BUILDTAGS="" CGO_ENABLED=0
