@@ -29,8 +29,9 @@ job=watch:
   use: builder
   mounts: [source]
   interactive: true
-  command: scripts/watch
-  env: ['TESTFLAGS={env.TESTFLAGS:}']
+  command: |
+    filewatcher -x vendor gotestsum
+  env: ['GOTESTSUM_FORMAT=short-verbose']
 
 job=deps:
   use: builder

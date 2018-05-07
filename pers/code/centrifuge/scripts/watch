@@ -1,9 +1,0 @@
-#!/bin/bash
-
-exec filewatcher \
-    -e create -e write \
-    -x 'vendor' \
-    -x 'scripts' \
-    -x '**/*___jb_tmp___' \
-    -x '**/*___jb_old___' \
-    go test -v -timeout 30s './${dir}'
