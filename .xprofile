@@ -2,6 +2,8 @@
 #
 # Set keyboard repeat rate
 xset r rate 200 60
+# Keyboard mapping
+xmodmap ~/.Xmodmap
 
 # Disable keypad clicks while typing
 if command -v syndaemon > /dev/null; then
@@ -10,3 +12,4 @@ if command -v syndaemon > /dev/null; then
 fi
 
 [ -f .xprofile_local ] && source .xprofile_local
+
