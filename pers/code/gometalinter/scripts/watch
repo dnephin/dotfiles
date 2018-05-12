@@ -1,7 +1,0 @@
-#!/bin/bash
-
-exec filewatcher \
-    -x 'vendor' \
-    -x 'dist' \
-    -x 'scripts' \
-    go test -v -timeout 30s './${dir}'

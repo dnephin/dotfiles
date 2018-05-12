@@ -1,5 +1,2 @@
 #!/bin/bash
-
-set -eu
-
-go build -o dist/gometalinter .
+exec go build -o dist/gometalinter .

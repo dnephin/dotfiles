@@ -12,9 +12,11 @@ image=builder:
 
 image=dist:
   image: dnephin/gometalinter
-  tags: ['master-go{env.GO_VERSION}']
+  tags:
+    - '{env.VERSION}'
+    - 'latest'
   args:
-    GO_VERSION: '{env.GO_VERSION}'
+    GO_VERSION: '{env.GO_VERSION:1.10}'
   context: .
   dockerfile: dobifiles/Dockerfile.dist
   depends: [binary]
@@ -29,13 +31,14 @@ job=watch:
   use: builder
   mounts: [source]
   interactive: true
-  command: scripts/watch
+  env: ['GOTESTSUM_FORMAT=short-verbose']
+  command: filewatcher -x vendor -x _linters gotestsum
 
 job=test-unit:
   use: builder
   mounts: [source]
   interactive: true
-  command: go test -v .
+  command: gotestsum
 
 job=test-regression:
   use: builder
@@ -46,6 +49,8 @@ job=test-regression:
 
 job=binary:
   use: builder
+  env:
+    - 'VERSION={env.VERSION:}'
   mounts: [source]
   command: scripts/binary
 
