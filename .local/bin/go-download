@@ -1,14 +1,19 @@
-#!/bin/bash
-
-set -e
+#!/usr/bin/env bash
+set -eu -o pipefail
 
 TMPFILE=$(mktemp -d)
+image="dnephin/go-downloader"
+
+cat <<EOL | docker build -t "$image" -f- "$TMPFILE"
+FROM golang:1.10-alpine
+RUN apk add -U git
+EOL
 
 docker run --rm -ti \
     -e CGO_ENABLED=0 \
     -v $TMPFILE:/go/bin \
-    golang:1.10-alpine \
-    sh -c "apk add -U git; go get $@"
+    "$image" \
+    go get "$@"
 
 cp "$TMPFILE/$(ls -1 $TMPFILE)" ~/.local/bin
 echo $TMPFILE
