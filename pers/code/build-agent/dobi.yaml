@@ -23,7 +23,8 @@ job=shell:
   mounts: [source, depsources, sshagent]
   env: [SSH_AUTH_SOCK=/tmp/sshagent.sock]
   interactive: true
-  command: bash
+  command: sh
+  provide-docker: true
 
 job=watch:
   use: builder
