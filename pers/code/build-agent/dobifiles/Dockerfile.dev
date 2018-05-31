@@ -50,6 +50,8 @@ RUN		git config --global url."https://github.com/".insteadOf 'git@github.com:'
 RUN		mkdir -p /root/.ssh && ssh-keyscan github.com > /root/.ssh/known_hosts
 
 COPY	--from=builder /go/bin /usr/local/bin
+RUN     mkdir /opt && \
+        ln -s /go/src/github.com/circleci/build-agent/workdir /opt/circleci
 ENV     PS1="# "
 WORKDIR /go/src/github.com/circleci/build-agent
 ENV		BUILDTAGS="" CGO_ENABLED=0
