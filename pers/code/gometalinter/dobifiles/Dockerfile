@@ -1,8 +1,8 @@
-FROM    golang:1.8.3-alpine
+FROM    golang:1.10-alpine
 
 RUN     apk add -U curl git bash
 
-ARG     FILEWATCHER_SHA=2e12ea42f6c8c089b19e992145bb94e8adaecedb
+ARG     FILEWATCHER_SHA=v0.3.0
 RUN     go get -d github.com/dnephin/filewatcher && \
         cd /go/src/github.com/dnephin/filewatcher && \
         git checkout -q "$FILEWATCHER_SHA" && \
@@ -14,7 +14,7 @@ RUN     go get github.com/FiloSottile/gvt && \
         rm -rf /go/src/* /go/pkg/* /go/bin/*
 
 RUN     go get github.com/stretchr/testify && \
-        go get github.com/gotestyourself/gotestyourself && \
+        go get gotest.tools && \
         go get github.com/google/go-cmp/cmp && \
         go get github.com/pkg/errors && \
         go get github.com/pmezard/go-difflib/difflib
