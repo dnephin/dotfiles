@@ -39,6 +39,12 @@ RUN     go get -d github.com/dantoml/go-bindata && \
         git checkout -q "$BINDATA" && \
         go install ./go-bindata
 
+ARG     PROTOC=v1.1.0
+RUN     go get -d github.com/golang/protobuf/protoc-gen-go && \
+        cd /go/src/github.com/golang/protobuf && \
+        git checkout -q "$PROTOC" && \
+        go install ./protoc-gen-go
+
 FROM    golang:1.10-alpine
 RUN     apk add -U \
             curl git bash openssh-client make \
