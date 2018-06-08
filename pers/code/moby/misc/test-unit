@@ -1,0 +1,13 @@
+#!/bin/bash
+
+go test -v \
+    -timeout 100s \
+    $TESTFLAGS \
+    -ldflags -w \
+    -tags 'autogen netgo static_build sqlite_omit_load_extension apparmor
+           pkcs11 seccomp selinux exclude_graphdriver_devicemapper daemon
+           journald libdm_no_deferred_remove experimental' \
+    -installsuffix netgo $@ # | ./gotestsum
+status=$?
+
+echo; echo; exit $status
