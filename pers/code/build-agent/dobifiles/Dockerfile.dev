@@ -39,13 +39,16 @@ RUN     go get -d github.com/dantoml/go-bindata && \
         git checkout -q "$BINDATA" && \
         go install ./go-bindata
 
-# TODO: move these to Gopkg.toml?
-RUN     go get github.com/golang/mock/mockgen
-RUN     go get github.com/golang/protobuf/protoc-gen-go
-
+ARG     PROTOC=v1.1.0
+RUN     go get -d github.com/golang/protobuf/protoc-gen-go && \
+        cd /go/src/github.com/golang/protobuf && \
+        git checkout -q "$PROTOC" && \
+        go install ./protoc-gen-go
 
 FROM    golang:1.10-alpine
-RUN     apk add -U curl git bash openssh-client make
+RUN     apk add -U \
+            curl git bash openssh-client make \
+            protobuf
 RUN		git config --global url."https://github.com/".insteadOf 'git@github.com:'
 RUN		mkdir -p /root/.ssh && ssh-keyscan github.com > /root/.ssh/known_hosts
 

@@ -30,8 +30,9 @@ job=watch:
   use: builder
   mounts: [source]
   interactive: true
+  provide-docker: true
   command: |
-    filewatcher -x vendor gotestsum
+    filewatcher -x vendor gotestsum -- -tags=integration
   env: ['GOTESTSUM_FORMAT=short-verbose']
 
 job=deps:

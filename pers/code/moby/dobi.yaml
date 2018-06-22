@@ -1,0 +1,56 @@
+
+meta:
+    project: docker
+
+mount=source:
+    bind: .
+    path: /go/src/github.com/docker/docker
+
+image=builder:
+    image: docker-dev
+    context: dobifiles/
+    dockerfile: Dockerfile
+
+job=watch:
+    use: builder
+    mounts: [source]
+    interactive: true
+    command: misc/watch
+    privileged: true
+    env: ['TESTFLAGS={env.TESTFLAGS:}']
+
+job=shell:
+    use: builder
+    mounts: [source]
+    interactive: true
+    command: bash
+    privileged: true
+
+image=refactor:
+    image: dnephin/go-refactor
+    tags: [dev]
+    context: misc/go-refactor
+    dockerfile: Dockerfile
+
+job=refactor-shell:
+    use: refactor
+    mounts: [source]
+    interactive: true
+    command: sh
+
+image=linter:
+  image: docker-lint
+  context: dobifiles/
+  dockerfile: Dockerfile.lint
+
+job=lint:
+  use: linter
+  mounts: [source]
+  interactive: true
+
+job=lint-shell:
+  use: linter
+  mounts: [source]
+  interactive: true
+  entrypoint: sh
+

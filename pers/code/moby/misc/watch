@@ -1,0 +1,15 @@
+#!/bin/bash
+
+set -e
+
+filewatcher \
+    -L 7 \
+    -x '**/*.swp' \
+    -x .git \
+    -x docs \
+    -x dist \
+    -x bundles \
+    -x .idea \
+    -x vendor \
+    -- \
+    misc/test-unit './${dir}'
