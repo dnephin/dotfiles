@@ -1,0 +1,2 @@
+#!/usr/bin/env sh
+exec chown -R 1000:1000 vendor/ Gopkg.* internal/fakes/ e2e/harness/_logs

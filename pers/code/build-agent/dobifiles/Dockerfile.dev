@@ -48,7 +48,8 @@ RUN     go get -d github.com/golang/protobuf/protoc-gen-go && \
 FROM    golang:1.10-alpine
 RUN     apk add -U \
             curl git bash openssh-client make \
-            protobuf
+            protobuf \
+            docker
 RUN		git config --global url."https://github.com/".insteadOf 'git@github.com:'
 RUN		mkdir -p /root/.ssh && ssh-keyscan github.com > /root/.ssh/known_hosts
 
