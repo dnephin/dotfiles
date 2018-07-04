@@ -22,16 +22,22 @@ job=shell:
   use: builder
   mounts: [source, depsources, sshagent]
   env: [SSH_AUTH_SOCK=/tmp/sshagent.sock]
+  provide-docker: true
+  net-mode: host
   interactive: true
   command: sh
 
 job=watch:
   use: builder
   mounts: [source]
+  provide-docker: true
   interactive: true
+  net-mode: host
   command: |
-    filewatcher -x vendor gotestsum
-  env: ['GOTESTSUM_FORMAT=short-verbose']
+    filewatcher -x vendor gotestsum -- -tags=integration
+  env:
+    - 'GOTESTSUM_FORMAT=short-verbose'
+    - 'NOMAD_ADDR={env.NOMAD_ADDR:}'
 
 job=deps:
   use: builder
