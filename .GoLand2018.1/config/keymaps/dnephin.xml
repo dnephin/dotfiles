@@ -1,5 +1,6 @@
-<keymap version="1" name="Default for XWin copy" parent="Default for XWin">
+<keymap version="1" name="dnephin" parent="Default for XWin">
   <action id="Back">
+    <keyboard-shortcut first-keystroke="ctrl alt left" />
     <mouse-shortcut keystroke="button4" />
     <keyboard-shortcut first-keystroke="ctrl alt down" />
   </action>
@@ -9,8 +10,6 @@
   <action id="CloseContent">
     <keyboard-shortcut first-keystroke="ctrl w" />
   </action>
-  <action id="Console.TableResult.NextPage" />
-  <action id="Console.TableResult.PreviousPage" />
   <action id="EditorDeleteLine">
     <keyboard-shortcut first-keystroke="ctrl d" />
   </action>
@@ -21,6 +20,7 @@
     <keyboard-shortcut first-keystroke="f3" />
   </action>
   <action id="Forward">
+    <keyboard-shortcut first-keystroke="ctrl alt right" />
     <mouse-shortcut keystroke="button5" />
     <keyboard-shortcut first-keystroke="ctrl alt up" />
   </action>
@@ -28,12 +28,6 @@
     <keyboard-shortcut first-keystroke="ctrl l" />
   </action>
   <action id="NextOccurence" />
-  <action id="NextSplitter">
-    <keyboard-shortcut first-keystroke="ctrl alt right" />
-  </action>
-  <action id="PrevSplitter">
-    <keyboard-shortcut first-keystroke="ctrl alt left" />
-  </action>
   <action id="PreviousOccurence" />
   <action id="SearchEverywhere">
     <keyboard-shortcut first-keystroke="context_menu" />
