@@ -38,6 +38,11 @@ job=watch:
   env:
     - 'GOTESTSUM_FORMAT=short-verbose'
     - 'NOMAD_ADDR={env.NOMAD_ADDR:}'
+    - 'AWS_ACCESS_KEY_ID={env.AWS_ACCESS_KEY_ID:}'
+    - 'AWS_SECRET_ACCESS_KEY={env.AWS_SECRET_ACCESS_KEY:}'
+    - 'AWS_REGION=us-east-1'
+    - 'GOCACHE={env.GOCACHE:}'
+
 
 job=deps:
   use: builder
