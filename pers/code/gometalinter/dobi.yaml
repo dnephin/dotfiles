@@ -16,7 +16,7 @@ image=dist:
     - '{env.VERSION}'
     - 'latest'
   args:
-    GO_VERSION: '{env.GO_VERSION:1.10}'
+    GO_VERSION: '{env.GO_VERSION:1.10.3}'
   context: .
   dockerfile: dobifiles/Dockerfile.dist
   depends: [binary]

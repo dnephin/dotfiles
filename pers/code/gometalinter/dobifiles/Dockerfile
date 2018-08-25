@@ -1,4 +1,4 @@
-FROM    golang:1.10-alpine
+FROM    golang:1.10.3-alpine
 
 RUN     apk add -U curl git bash
 
@@ -9,7 +9,7 @@ RUN     go get -d github.com/dnephin/filewatcher && \
         go build -v -o /usr/bin/filewatcher . && \
         rm -rf /go/src/* /go/pkg/* /go/bin/*
 
-ARG     GOTESTSUM=v0.3.0
+ARG     GOTESTSUM=v0.3.1
 RUN     go get -d gotest.tools/gotestsum && \
         cd /go/src/gotest.tools/gotestsum && \
         git checkout -q "$GOTESTSUM" && \
