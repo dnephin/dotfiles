@@ -25,7 +25,7 @@ job=shell:
   provide-docker: true
   net-mode: host
   interactive: true
-  command: sh
+  command: bash
 
 job=watch:
   use: builder
@@ -34,13 +34,14 @@ job=watch:
   interactive: true
   net-mode: host
   command: |
-    filewatcher -x vendor gotestsum -- -tags=integration -timeout=10s
+    filewatcher -x vendor gotestsum -- -tags=integration -timeout=60s
   env:
     - 'GOTESTSUM_FORMAT=short-verbose'
     - 'NOMAD_ADDR={env.NOMAD_ADDR:}'
     - 'AWS_ACCESS_KEY_ID={env.AWS_ACCESS_KEY_ID:}'
     - 'AWS_SECRET_ACCESS_KEY={env.AWS_SECRET_ACCESS_KEY:}'
-    - 'AWS_REGION={env.AWS_REGION:}'
+    - 'AWS_REGION=us-east-1'
+    - 'GOCACHE={env.GOCACHE:}'
 
 job=deps:
   use: builder
@@ -52,3 +53,18 @@ job=lint:
   use: builder
   mounts: [source]
   command: gometalinter ./...
+
+image=racer:
+  image: racer
+  context: dobifiles
+  steps: |
+    FROM golang:1.10.3
+    RUN apt-get update && apt-get install -y build-essential
+    RUN echo 'export "PS1=# "' > ~/.bashrc
+    WORKDIR /go/src/github.com/circleci/centrifuge
+
+job=race:
+  use: racer
+  mounts: [source]
+  command: bash
+  interactive: true

@@ -1,4 +1,4 @@
-ARG     GO_VERSION=1.10
+ARG     GO_VERSION=1.10.3
 FROM    golang:${GO_VERSION}-alpine as builder
 COPY    dist/gometalinter /usr/local/bin/gometalinter
 COPY    . /go/src/github.com/alecthomas/gometalinter
@@ -8,4 +8,5 @@ FROM    golang:${GO_VERSION}-alpine
 RUN     apk add --no-cache git
 COPY    --from=builder /usr/local/bin/gometalinter /usr/local/bin/gometalinter
 COPY    --from=builder /go/bin /go/bin
+ENV     CGO_ENABLED=0
 ENTRYPOINT ["/usr/local/bin/gometalinter"]

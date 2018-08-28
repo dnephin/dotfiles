@@ -1,0 +1,27 @@
+meta:
+  project: vm-service
+
+mount=source:
+  bind: .
+  path: /code
+
+mount=m2:
+  bind: ~/.m2
+  path: /root/.m2
+
+mount=lein-profile:
+  bind: ~/.lein
+  path: /root/.lein
+
+image=dev:
+  image: clojure-dev
+  context: .
+  steps: |
+    FROM clojure:lein-2.8.1-alpine
+    WORKDIR /code
+
+job=shell:
+  use: dev
+  interactive: true
+  mounts: [source, m2, lein-profile]
+

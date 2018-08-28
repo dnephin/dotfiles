@@ -1,2 +1,14 @@
 #!/bin/bash
-exec go build -o dist/gometalinter .
+set -eu
+
+GITSHA="$(git rev-parse --short HEAD)"
+DATE="$(date)"
+
+set -x
+exec go build \
+  -ldflags="
+  -X main.version=$VERSION
+  -X main.commit=$GITSHA
+  -X 'main.date=$DATE'
+  " \
+  -o dist/gometalinter .
