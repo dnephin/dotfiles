@@ -29,6 +29,12 @@ image=dev:
     COPY --from=proto-plugin-builder \
           /build/grpc-java/compiler/build/exe/java_plugin/protoc-gen-grpc-java \
           /usr/local/bin/
+
+    RUN  apk add --no-cache curl xz
+    RUN  curl -sSL https://storage.googleapis.com/shellcheck/shellcheck-stable.linux.x86_64.tar.xz | \
+          tar -xJ shellcheck-stable/shellcheck && \
+          mv shellcheck-stable/shellcheck /usr/local/bin
+
     WORKDIR /code
 
 job=shell:
