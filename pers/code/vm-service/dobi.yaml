@@ -21,36 +21,12 @@ image=dev:
     RUN apk add --no-cache openssh-keygen openssh
     WORKDIR /code
 
-image=migration:
-  image: circleci/clojure-service
-  tags: [0.2.176-2f08494-dev]
-  pull: once
-
 job=shell:
   use: dev
   interactive: true
-  net-mode: "vm-service_default"
+  net-mode: vm-service_default
   mounts: [source, m2, lein-profile]
   command: bash
   env:
     - "GOOGLE_APPLICATION_CREDENTIALS=./config/config-dev-gce-credentials.json"
     - "PS1=# "
-
-
-image=postgres:
-  image: postgres
-  tags: [9.5.5-alpine]
-  pull: once
-
-job=database:
-  use: postgres
-  net-mode: 'container:{unique}-shell'
-  env: ['POSTGRES_USER=root']
-
-# Run docker-compose up -d instead
-job=migrate:
-  use: migration
-  net-mode: 'vm-service_default'
-  mounts: [source]
-  working-dir: /code
-  command: "flyway -url=jdbc:postgresql://localhost:5432/root -schemas=vms -user=root -password= -table=schema_version -locations=filesystem:./sql migrate"
