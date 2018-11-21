@@ -5,6 +5,9 @@
     <keyboard-shortcut first-keystroke="ctrl alt down" />
   </action>
   <action id="ChangesView.Diff" />
+  <action id="CloseAllEditorsButActive">
+    <keyboard-shortcut first-keystroke="shift ctrl w" />
+  </action>
   <action id="CompareTwoFiles" />
   <action id="Diff.ShowDiff" />
   <action id="EditorDeleteLine">
@@ -12,6 +15,7 @@
     <keyboard-shortcut first-keystroke="ctrl d" />
   </action>
   <action id="EditorDuplicate" />
+  <action id="EditorUnSelectWord" />
   <action id="FileChooser.GotoDesktop" />
   <action id="FindNext">
     <keyboard-shortcut first-keystroke="f3" />

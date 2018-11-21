@@ -35,7 +35,7 @@ job=shell:
   use: dev
   interactive: true
   mounts: [source, m2, lein-profile]
-  net-mode: host
+  net-mode: circle_default
   env:
     - CIRCLE_CONTEXTS_SERVICE_GRPC_HOST=willnotresolve
     - CIRCLE_CONTEXTS_SERVICE_GRPC_PORT=12345
