@@ -30,3 +30,13 @@ job=shell:
   env:
     - "GOOGLE_APPLICATION_CREDENTIALS=./config/config-dev-gce-credentials.json"
     - "PS1=# "
+
+job=watch:
+  use: dev
+  interactive: true
+  net-mode: vm-service_default
+  mounts: [source, m2, lein-profile]
+  command: scripts/watch
+  env:
+    - "GOOGLE_APPLICATION_CREDENTIALS=./config/config-dev-gce-credentials.json"
+
