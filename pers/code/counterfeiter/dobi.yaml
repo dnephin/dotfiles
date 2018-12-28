@@ -1,5 +1,5 @@
 meta:
-  project: autoscaler
+  project: counterfeiter
 
 mount=source:
   bind: .
@@ -13,10 +13,6 @@ mount=modcache:
   bind: ~/go/pkg/mod
   path: /go/pkg/mod
 
-mount=sshagent:
-  bind: "{env.SSH_AUTH_SOCK}"
-  path: /tmp/sshagent.sock
-
 
 image=dev:
   image: go-dev
@@ -27,8 +23,7 @@ image=dev:
 
 job=shell:
   use: dev
-  mounts: [source, buildcache, modcache, sshagent]
-  env: [SSH_AUTH_SOCK=/tmp/sshagent.sock]
+  mounts: [source, buildcache, modcache]
   interactive: true
   command: sh
 
