@@ -1,0 +1,54 @@
+meta:
+  project: datadog-api 
+
+mount=source:
+  bind: .
+  path: /code
+
+mount=buildcache:
+  bind: ~/.cache/go-build
+  path: /root/.cache/go-build
+
+mount=modcache:
+  bind: ~/go/pkg/mod
+  path: /go/pkg/mod
+
+
+image=dev:
+  image: go-dev
+  dockerfile: Dockerfile
+  target: dev
+  args:
+    GOLANG_VERSION: '{env.GOLANG_VERSION:}' 
+
+job=shell:
+  use: dev
+  mounts: [source, buildcache, modcache]
+  interactive: true
+  command: sh
+
+job=watch:
+  use: dev
+  mounts: [source, buildcache, modcache]
+  interactive: true
+  command: |
+      filewatcher gotestsum -- -test.timeout 10s
+  env: ['GOTESTSUM_FORMAT=short-verbose']
+
+job=test-unit:
+  use: dev
+  mounts: [source]
+  interactive: true
+  command: scripts/test-unit
+
+alias=test:
+  tasks: [test-unit]
+
+image=linter:
+  image: go-linter
+  dockerfile: Dockerfile
+  target: linter
+
+job=lint:
+  use: linter
+  mounts: [source]
