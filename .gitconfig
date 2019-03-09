@@ -15,6 +15,9 @@
 	pager = less -x1,5
 [alias]
 	st = status
-	co = checkout
+    co = checkout
+    cano = commit -a --amend --no-edit
 [http]
 	cookiefile = /home/daniel/.gitcookies
+[rebase]
+	autosquash = true

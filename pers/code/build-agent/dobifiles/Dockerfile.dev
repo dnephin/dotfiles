@@ -7,14 +7,13 @@ RUN     go get -d github.com/dnephin/filewatcher && \
         git checkout -q "$FILEWATCHER" && \
         go install .
 
-ARG     GOMETALINTER=v2.0.11
-RUN     go get -d github.com/alecthomas/gometalinter && \
-        cd /go/src/github.com/alecthomas/gometalinter && \
-        git checkout -q "$GOMETALINTER" && \
-        go install . && \
-        /go/bin/gometalinter --install
+ARG     LINT=v1.12.5
+RUN     go get -d github.com/golangci/golangci-lint/cmd/golangci-lint && \
+        cd /go/src/github.com/golangci/golangci-lint && \
+        git checkout -q "$LINT" && \
+        go install ./cmd/golangci-lint
 
-ARG		COUNTERFEITER=v6.0.1
+ARG		COUNTERFEITER=d7285d544cff
 RUN		go get -d github.com/maxbrunsfeld/counterfeiter && \
 		cd /go/src/github.com/maxbrunsfeld/counterfeiter && \
 		git checkout -q "$COUNTERFEITER" && \
