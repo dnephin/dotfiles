@@ -1,0 +1,25 @@
+#!/usr/bin/env bash
+
+. .plsdo.sh
+
+
+help[build]='Build the go toolchain.'
+build() {
+    ./make.bash
+}
+
+help[test]='Run go test'
+test() {
+    export GOTESTSUM_FORMAT="${GOTESTSUM_FORMAT-standard-verbose}"
+    gotestsum -- -v -test.timeout=5s "$@"
+}
+
+binary-test2json() {
+    go build -o ../bin/test2json ./cmd/test2json/
+}
+
+# Default to the go toolchain built from this checkout
+export PATH="../bin:$PATH"
+export GOROOT="$(set -e; cd ..; pwd)"
+
+_plsdo_run "$@"
