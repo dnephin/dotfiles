@@ -32,11 +32,12 @@ autocmd BufWinEnter *.* silent loadview
 " Syntax highlight for file types
 au BufRead,BufNewFile *.hbs set syntax=handlebars
 au BufRead,BufNewFile *.md set syntax=markdown
+au BufRead,BufNewFile *.mdx set syntax=markdown
 
 
 " Wrap lines at 80
 set formatoptions+=w
-set tw=80
+set tw=90
 
 " Go syntax highlighting
 let g:go_highlight_functions = 1

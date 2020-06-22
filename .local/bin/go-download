@@ -5,7 +5,7 @@ TMPFILE=$(mktemp -d)
 image="dnephin/go-downloader"
 
 cat <<EOL | docker build -t "$image" -f- "$TMPFILE"
-FROM golang:1.12-alpine
+FROM golang:1.14-alpine
 RUN apk add -U git
 EOL
 

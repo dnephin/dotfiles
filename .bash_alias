@@ -1,19 +1,10 @@
 #!/bin/bash
 # Aliases
 
-alias testify="testify -v --summary"
-
-alias tmux="tmux -2"
-
-alias ack='ack-grep'
 alias ls='ls --color=auto'
 alias grep='grep --color=auto'
 
-alias docker-dev='docker run -i -t \
-        -v ~/.ssh:/home/daniel/.ssh \
-        -v ~/pers/code/:/home/daniel/pers/code'
-
-alias tmux-set-title='tmux rename-window $(basename $PWD)'
-
-
-alias fig='docker-compose'
+cd() {
+    command cd "$@"
+    tmux rename-window "$(basename $PWD)"
+}
