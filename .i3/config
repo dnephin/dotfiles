@@ -169,7 +169,7 @@ bar {
   }
 }
 
-exec --no-startup-id feh --bg-fill /home/daniel/background.png
+exec --no-startup-id feh --bg-scale /home/daniel/background.png
 #exec --no-startup-id xautolock -time 10 -locker "i3lock -t -i /home/daniel/background.png"
 
 client.focused #888888 #dddddd #222222 #333333
