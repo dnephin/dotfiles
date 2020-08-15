@@ -16,7 +16,7 @@
 [alias]
 	st = status
     co = checkout
-    cano = commit -a --amend --no-edit
+    cano = commit --amend --no-edit
 [http]
 	cookiefile = /home/daniel/.gitcookies
 [rebase]

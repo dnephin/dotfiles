@@ -138,11 +138,11 @@ bindsym $mod+Pause exec i3lock -t -i /home/daniel/background.png
 bindsym XF86LaunchB exec i3lock -t -i /home/daniel/background.png
 
 # Volume control
-bindsym XF86AudioRaiseVolume exec "pactl set-sink-volume 0 +5%"
-bindsym XF86AudioLowerVolume exec "pactl set-sink-volume 0 -5%"
-bindsym $mod+Up exec "pactl set-sink-volume 0 +5%"
-bindsym $mod+Down exec "pactl set-sink-volume 0 -5%"
-bindsym XF86AudioMute exec "pactl set-sink-mute 0 toggle"
+bindsym XF86AudioRaiseVolume exec "pactl set-sink-volume @DEFAULT_SINK@ +5%"
+bindsym XF86AudioLowerVolume exec "pactl set-sink-volume @DEFAULT_SINK@ -5%"
+bindsym $mod+Up exec "pactl set-sink-volume @DEFAULT_SINK@ +5%"
+bindsym $mod+Down exec "pactl set-sink-volume @DEFAULT_SINK@ -5%"
+bindsym XF86AudioMute exec "pactl set-sink-mute @DEFAULT_SINK@ toggle"
 
 # Brightness control
 bindsym XF86MonBrightnessUp exec "xbacklight -inc 10"

@@ -31,7 +31,7 @@ clr=$c"00m\]"
 PS1=$b"["$w"\u"$b"]["$w"\$(date +%H:%M)"$b"]["$w"\w"$b"]"$clr"\$ "
 
 
-export PATH=$PATH:~/.local/bin/:~/bin/
+export PATH=$PATH:~/.local/bin/:~/bin/:~/go/bin
 
 [ -r /usr/share/bash-completion/bash_completion ] && . /usr/share/bash-completion/bash_completion
 
