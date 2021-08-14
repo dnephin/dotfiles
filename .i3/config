@@ -169,7 +169,7 @@ bar {
   }
 }
 
-exec --no-startup-id feh --bg-fill /home/daniel/background.png
+exec --no-startup-id feh --bg-scale /home/daniel/background.png
 #exec --no-startup-id xautolock -time 10 -locker "i3lock -t -i /home/daniel/background.png"
 
 client.focused #888888 #dddddd #222222 #333333
@@ -181,3 +181,13 @@ client.background #333333
 
 for_window [class="^(?i)google-chrome"] border pixel 1
 for_window [class="^(?i)gnome-terminal"] border pixel 1
+
+
+
+workspace 1 output DP-0
+workspace 2 output DP-0
+workspace 3 output DP-2
+workspace 4 output DP-2
+workspace 5 output HDMI-0
+workspace 6 output HDMI-0
+
