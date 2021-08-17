@@ -181,3 +181,10 @@ client.background #333333
 
 for_window [class="^(?i)google-chrome"] border pixel 1
 for_window [class="^(?i)gnome-terminal"] border pixel 1
+for_window [class="^(?i)wine"] border pixel 0
+
+assign [class="^(?i)Steam"] 6
+assign [class="^hl2_linux"] 4
+assign [class="^jetbrains-goland"] 4
+assign [class="^jetbrains-idea"] 4
+assign [class="Spotify"] 5

@@ -6,5 +6,5 @@ alias grep='grep --color=auto'
 
 cd() {
     command cd "$@"
-    tmux rename-window "$(basename $PWD)"
+    tmux rename-window "$(basename "$PWD")"
 }
