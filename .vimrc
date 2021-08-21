@@ -36,7 +36,7 @@ au BufRead,BufNewFile *.mdx set syntax=markdown
 
 
 " Wrap lines at 80
-set formatoptions+=w
+set formatoptions+=b
 set tw=90
 
 " Go syntax highlighting

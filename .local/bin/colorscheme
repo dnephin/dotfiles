@@ -1,0 +1,25 @@
+#!/usr/bin/env bash
+set -u -o pipefail
+
+color=0;
+
+while [ $color -lt 16 ]; do
+    if (( $color % 8 == 0 )); then
+        echo
+        printf "%03d " $color
+    fi
+    echo -n -e "\\033[48;5;${color}m  \\033[0m"
+    ((color++));
+done  
+
+
+
+while [ $color -lt 256 ]; do
+    if (( $color % 6 == 4 )); then
+        echo
+        printf "%03d " $color
+    fi
+    echo -n -e "\\033[48;5;${color}m  \\033[0m"
+    ((color++));
+done  
+echo
