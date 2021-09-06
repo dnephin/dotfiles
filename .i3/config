@@ -183,7 +183,6 @@ for_window [class="^(?i)google-chrome"] border pixel 1
 for_window [class="^(?i)gnome-terminal"] border pixel 1
 
 
-
 workspace 1 output DP-0
 workspace 2 output DP-0
 workspace 3 output DP-2
@@ -191,3 +190,9 @@ workspace 4 output DP-2
 workspace 5 output HDMI-0
 workspace 6 output HDMI-0
 
+assign [class="^(?i)Steam"] 6
+assign [class="^hl2_linux"] 4
+assign [class="^Talos"] 4
+assign [class="^jetbrains-goland"] 4
+assign [class="^jetbrains-idea"] 4
+assign [class="Spotify"] 5

@@ -17,7 +17,15 @@
 	st = status
     co = checkout
     cano = commit --amend --no-edit
+    cp = cherry-pick
 [http]
 	cookiefile = /home/daniel/.gitcookies
 [rebase]
 	autosquash = true
+[url "git@github.com:"]
+	insteadOf = https://github.com/
+[rerere]
+	enabled = true
+
+[init]
+	defaultBranch = main

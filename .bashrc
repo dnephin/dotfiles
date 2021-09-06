@@ -33,6 +33,8 @@ PS1=$b"["$w"\u"$b"]["$w"\$(date +%H:%M)"$b"]["$w"\w"$b"]"$clr"\$ "
 
 export PATH=$PATH:~/.local/bin/:~/bin/:~/go/bin
 
+export SSH_AUTH_SOCK=/run/user/1000/ssh-agent.socket
+
 [ -r /usr/share/bash-completion/bash_completion ] && . /usr/share/bash-completion/bash_completion
 
 for f in ~/.bash_complete/*; do source $f; done
