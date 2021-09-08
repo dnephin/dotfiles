@@ -193,6 +193,7 @@ workspace 6 output HDMI-0
 assign [class="^(?i)Steam"] 6
 assign [class="^hl2_linux"] 4
 assign [class="^Talos"] 4
+assign [class="^hollow_knight.x86_64"] 4
 assign [class="^jetbrains-goland"] 4
 assign [class="^jetbrains-idea"] 4
 assign [class="Spotify"] 5
