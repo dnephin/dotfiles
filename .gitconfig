@@ -18,6 +18,7 @@
     co = checkout
     cano = commit --amend --no-edit
     cp = cherry-pick
+    brnew = branch --sort=-committerdate
 [http]
 	cookiefile = /home/daniel/.gitcookies
 [rebase]
