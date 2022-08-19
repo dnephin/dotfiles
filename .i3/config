@@ -77,6 +77,14 @@ bindsym $mod+3 workspace 3
 bindsym $mod+4 workspace 4
 bindsym $mod+5 workspace 5
 bindsym $mod+6 workspace 6
+
+bindsym Mod3+1 workspace 1
+bindsym Mod3+2 workspace 2
+bindsym Mod3+3 workspace 3
+bindsym Mod3+4 workspace 4
+bindsym Mod3+5 workspace 5
+bindsym Mod3+6 workspace 6
+
 bindsym $mod+7 workspace 7
 bindsym $mod+8 workspace 8
 bindsym $mod+9 workspace 9
