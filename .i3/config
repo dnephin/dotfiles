@@ -26,7 +26,6 @@ bindsym $mod+d exec dmenu_run
 # change focus
 bindsym $mod+j focus left
 bindsym $mod+k focus down
-bindsym $mod+l focus up
 bindsym $mod+semicolon focus right
 
 # alternatively, you can use the cursor keys:
@@ -134,8 +133,9 @@ mode "resize" {
 
 bindsym $mod+r mode "resize"
 
-bindsym $mod+Pause exec i3lock -t -i /home/daniel/background.png
+bindsym $mod+Pause exec i3lock --nofork -t -e -i /home/daniel/background.png
 bindsym XF86LaunchB exec i3lock -t -i /home/daniel/background.png
+bindsym $mod+l exec i3lock --nofork -t -e -i /home/daniel/background.png
 
 # Volume control
 bindsym XF86AudioRaiseVolume exec "pactl set-sink-volume @DEFAULT_SINK@ +5%"
@@ -170,7 +170,7 @@ bar {
 }
 
 exec --no-startup-id feh --bg-scale /home/daniel/background.png
-#exec --no-startup-id xautolock -time 10 -locker "i3lock -t -i /home/daniel/background.png"
+exec --no-startup-id xss-lock -- i3lock --nofork -t -e -i /home/daniel/background.png
 
 client.focused #888888 #dddddd #222222 #333333
 client.focused_inactive #333333 #555555 #bbbbbb #484e50
